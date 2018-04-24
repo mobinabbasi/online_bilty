@@ -5,6 +5,7 @@ import {ServiceProvider} from '../../providers/service/service';
 import {EmailValidator} from '../../validator/email';
 
 
+
 @IonicPage()
 @Component({
   selector: 'page-registered',
@@ -35,4 +36,8 @@ export class RegisteredPage {
     }
   }
 
+  loginWithFB() {
+    this.service.loginWithFB();
+  }
+  
 }

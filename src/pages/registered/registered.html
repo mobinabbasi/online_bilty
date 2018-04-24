@@ -1,48 +1,29 @@
-<ion-header>
+<ion-content  padding>
 
-  <ion-navbar>
-    <ion-title>REGISTER</ion-title>
-  </ion-navbar>
+    <ion-img src="../../assets/imgs/OnlineBilty.png" id="image"></ion-img>
 
-</ion-header>
-
-
-<ion-content padding>
-<form [formGroup]="SignUpForm" (submit)="SignUp()" novalidate>
-    <ion-item>
-        <ion-label floating>Name</ion-label>
-        <ion-input type="text" formControlName="name"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label floating>Email</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
-      </ion-item>
-
-      <ion-item>
-          <ion-label floating>Number</ion-label>
-          <ion-input type="number" formControlName="number"></ion-input>
-        </ion-item>
-
+    <form  novalidate>
         <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password" formControlName="password"></ion-input>
+            <ion-label floating>Phone Number</ion-label>
+            <ion-input type="text"></ion-input>
           </ion-item>
-
+        
           <ion-item>
-              <ion-label floating>Confirm Password</ion-label>
-              <ion-input type="Password" formControlName="confirmpass"></ion-input>
-            </ion-item>
-
-            <!-- <ion-item>
-                <ion-label floating>Referral Code</ion-label>
-                <ion-input type="email"></ion-input>
-              </ion-item> -->
-              <div class="check">
-              <ion-checkbox color="primary"></ion-checkbox>
-              i accept the term and condition
-              </div>
-
-             <button [disabled]="!SignUpForm.valid"ion-button type="submit" class="button" full padding>SignUp</button>
-</form>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+  
+          <button ion-button full class="Sign">SEND OTP</button>
+          <div class="Facebook">OR</div>
+          <button ion-button (click)="loginWithFB()" full style="background-color: blue; color: white"> <ion-icon  name="logo-facebook" md="logo-facebook" > FACEBOOK</ion-icon></button>
+    </form>
 </ion-content>
+<ion-footer>
+  
+
+  <ion-buttons>
+      <!-- <button ion-button clear full class="forget">Forget Password?</button> -->
+     <button ion-button clear full class="newUser" navPush="LoginPage">Already a Member?Login here</button>
+     
+</ion-buttons>
+</ion-footer>

@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 import {Facebook , FacebookLoginResponse} from '@ionic-native/facebook';
+import {ServiceProvider} from '../../providers/service/service';
 
 
 
@@ -10,21 +14,17 @@ import {Facebook , FacebookLoginResponse} from '@ionic-native/facebook';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  userData: any;
+  // userData: any;
+  // displayName;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private facebook: Facebook) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public service: ServiceProvider,
+  public afAuth:AngularFireAuth) {
+
   }
 
   loginWithFB() {
-    this.facebook.login(['email', 'public_profile']).then((response: FacebookLoginResponse) => {
-      this.facebook.api('me?fields=id,name,email,first_name,picture.width(720).height(720).as(picture_large)', []).then(profile => {
-        this.userData = {email: profile['email'], first_name: profile['first_name'], picture: profile['picture_large']['data']['url'], username: profile['name']}
-      });
-    });
+    this.service.loginWithFB();
   }
-
-  newUser() {
-    this.navCtrl.push('RegisteredPage');
-  }
-
 }
