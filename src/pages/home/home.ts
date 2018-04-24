@@ -11,4 +11,12 @@ export class HomePage {
 
   }
 
+  register(){
+    this.navCtrl.push('RegisteredPage');
+  }
+
+  login(){
+    this.navCtrl.push('LoginPage');
+  }
+
 }

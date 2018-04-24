@@ -1,0 +1,42 @@
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>LOGIN</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+
+<ion-content  padding>
+
+      <ion-img src="../../assets/imgs/OnlineBilty.png" id="image"></ion-img>
+
+      <form  novalidate>
+          <ion-item>
+              <ion-label floating>Phone Number</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input type="password"></ion-input>
+            </ion-item>
+    
+            <button ion-button full class="Sign">Sign In</button>
+            <div class="Facebook">OR</div>
+            <button ion-button (click)="loginWithFB()" full style="background-color: blue; color: white"> <ion-icon  name="logo-facebook" md="logo-facebook" > Facebook</ion-icon></button>
+      </form>
+     
+
+</ion-content>
+<ion-footer>
+    
+  
+    <ion-buttons>
+        <!-- <button ion-button clear full class="forget">Forget Password?</button> -->
+       <button ion-button clear full class="newUser" (click)="newUser()">SignUp here</button>
+       
+  </ion-buttons>
+</ion-footer>
+

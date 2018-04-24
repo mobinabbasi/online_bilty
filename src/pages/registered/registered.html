@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>REGISTER</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form [formGroup]="SignUpForm" (submit)="SignUp()" novalidate>
+    <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Number</ion-label>
+          <ion-input type="number" formControlName="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Confirm Password</ion-label>
+              <ion-input type="Password" formControlName="confirmpass"></ion-input>
+            </ion-item>
+
+            <!-- <ion-item>
+                <ion-label floating>Referral Code</ion-label>
+                <ion-input type="email"></ion-input>
+              </ion-item> -->
+              <div class="check">
+              <ion-checkbox color="primary"></ion-checkbox>
+              i accept the term and condition
+              </div>
+
+             <button [disabled]="!SignUpForm.valid"ion-button type="submit" class="button" full padding>SignUp</button>
+</form>
+</ion-content>
