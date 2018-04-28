@@ -1,29 +1,23 @@
 <ion-content  padding>
 
-    <ion-img src="../../assets/imgs/OnlineBilty.png" id="image"></ion-img>
-
+    <h1 class="logo">Online<strong>Bilty</strong></h1>
+    <h5 class="ab-logo">Signup to join</h5>
     <form  novalidate>
         <ion-item>
-            <ion-label floating>Phone Number</ion-label>
+            <ion-label floating><ion-icon name="call"></ion-icon>Phone Number</ion-label>
             <ion-input type="text"></ion-input>
           </ion-item>
-        
-          <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password"></ion-input>
-          </ion-item>
   
-          <button ion-button full class="Sign">SEND OTP</button>
-          <div class="Facebook">OR</div>
-          <button ion-button (click)="loginWithFB()" full style="background-color: blue; color: white"> <ion-icon  name="logo-facebook" md="logo-facebook" > FACEBOOK</ion-icon></button>
+          <button ion-button full class="Sign" navPush="VerifyPage">Submit</button>
+          <div class="btn-devider">OR</div>
+          <button ion-button (click)="loginWithFB()" full class="fb-btn"> <ion-icon  name="logo-facebook" md="logo-facebook" class="fb-icon"></ion-icon>
+            Signup with Facebook</button>
     </form>
 </ion-content>
 <ion-footer>
-  
-
   <ion-buttons>
-      <!-- <button ion-button clear full class="forget">Forget Password?</button> -->
-     <button ion-button clear full class="newUser" navPush="LoginPage">Already a Member?Login here</button>
-     
+        <ul class="sign-call">
+            <li><p>Already a Member?</p><button ion-button clear full class="newUser" navPush="LoginPage">Login</button></li>
+        </ul>
 </ion-buttons>
 </ion-footer>
