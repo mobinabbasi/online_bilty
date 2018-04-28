@@ -1,0 +1,51 @@
+page-verify {
+
+.toolbar-background{background:#0c6f9b;}
+.header button{color: #fff;}
+.toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
+.title-ios{padding-top: 32px !important;}
+.top-head {text-align: center;margin: 10px 0 40px;}
+.top-head h3{font-size: 20px;}
+.top-head p{color: #666;margin: 0 0 5px;font-size: 16px;}
+button{border-radius: 4px !important;
+    height:3em !important;
+    font-size: 1.6rem !important;
+    margin: 0.4rem 0.2rem;
+    padding: 0 1em !important;
+    text-transform: capitalize !important;
+}  
+.Sign, .Sign.activated{
+    margin-top:25px;
+    color: #fff;
+    background-color: #e76c1a;
+    font-weight: 100;
+}
+.scroll-content{
+    padding:16px 30px !important;
+    overflow-y: hidden;
+}
+.newUser {
+    color: #000;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-transform: capitalize;
+    font-weight:400;
+    height:20px !important;
+    font-size: 13px !important;
+   }
+
+   .sign-call {
+    padding: 0;
+    margin: 20px 0;
+    list-style: none;
+    text-align: center;
+}
+
+.sign-call li{
+    display: inline-block;
+}
+
+ion-footer:before{
+    display: none;
+}
+}

@@ -1,0 +1,28 @@
+page-confirm {
+    .toolbar-background{background:#333;}
+.header button{color: #fff;}
+.toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
+.top-head {text-align: center; margin:25px 0;}
+.top-head h3{font-size: 20px;}
+.top-head p{color: #666; margin-top: 0;}
+button{border-radius: 4px !important;
+    height: 2.8em !important;
+    font-size: 1.6rem !important;
+    margin: 0.4rem 0.2rem;
+    padding: 0 1em !important;}
+.Sign, .Sign.activated{
+    margin-top: 40px;
+    color: #fff;
+    background-color: #00cb65; 
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.scroll-content{
+    padding:16px 40px !important;
+    overflow-y: hidden;
+}
+ion-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+}

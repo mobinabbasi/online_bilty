@@ -1,0 +1,125 @@
+page-login {
+.logo {
+        text-align: left;
+        font-size: 38px;
+        padding:40px 0 !important;
+        font-weight: 400;
+        margin-bottom: 0;
+        font-family: 'poppinslight';
+    }
+.logo strong{
+        color: #e76c1a;
+        font-family: 'poppinssemibold';
+    }
+button{border-radius: 4px !important;
+        height:3em !important;
+        font-size: 1.6rem !important;
+        margin: 0.4rem 0.2rem;
+        padding: 0 1em !important;
+        text-transform: capitalize !important;
+    }
+.reset_pass, .reset_pass.activated{
+        margin:10px auto 0 !important;
+        text-align: center !important;
+        display: block !important;
+        background: transparent;
+        box-shadow: none;
+        font-size: 12px !important;
+        font-weight: 400;
+        color: #000;
+    }    
+.Sign, .Sign.activated{
+        margin-top:25px;
+        color: #fff;
+        background-color: #e76c1a;
+        font-weight: 100;
+    }
+.fb-btn, .fb-btn.activated{
+        color: #fff;
+        background-color: #3a589b;
+        position: relative;
+        font-weight: 100;
+    }
+.fb-btn .fb-icon{
+        position: absolute;
+        left:15%;
+        top: 22%;
+        font-size: 24px;
+    }
+.forget {
+      margin-top: 50px;
+    }
+.scroll-content{
+    padding: 50px 30px 15px!important;
+    overflow-y: hidden;
+    margin-bottom: 0 !important;
+    }
+.item-inner {
+        border-bottom: 1px solid #999999 !important;
+    }  
+ion-icon{
+    font-size: 1.5em;
+    padding-right: 15px;
+}
+ion-label{
+        font-size: 14px;
+        margin-bottom: 5px !important;
+        color: #000 !important;
+    }
+ion-item{padding-left: 0 !important;}
+.btn-devider::before{
+        content: '';
+        position: absolute;
+        top: 40%;
+        left:-40px;
+        width:55%;
+        height: 1px;
+        background: #dbdbdb;
+    }
+.btn-devider {
+        text-align: center;
+        position: relative;
+        margin: 15px 0 25px;
+    }
+.btn-devider::after{
+        content: '';
+        position: absolute;
+        top: 40%;
+        right:-40px;
+        width:55%;
+        height: 1px;
+        background: #dbdbdb;
+    }
+form, input, optgroup, select {
+        margin: 0;
+        font: inherit;
+        color: inherit;
+    }
+.newUser {
+    color: #e76c1a;
+    margin: -7px 0 0 10px !important;
+    padding: 0 !important;
+    text-transform: capitalize;
+    font-weight:400;
+    height:20px !important;
+    font-size: 14px !important;
+   }
+
+.sign-call {
+    padding: 0;
+    margin: 25px 0;
+    list-style: none;
+}
+
+.sign-call li{
+    display:block;
+    text-align: center;
+}
+ion-footer{
+    background: #eeeeee;
+}
+ion-footer:before{
+    display: none;
+}
+
+}
