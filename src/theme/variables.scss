@@ -5,7 +5,48 @@
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
 
+@font-face {
+  font-family: 'poppinslight';
+  src: url('../assets/fonts/poppins-light-webfont.woff2') format('woff2'),
+       url('../assets/fonts/poppins-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 
+}
+
+@font-face {
+  font-family: 'poppinsmedium';
+  src: url('../assets/fonts/poppins-medium-webfont.woff2') format('woff2'),
+       url('../assets/fonts/poppins-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'poppinsbold';
+    src: url('../assets/fonts/poppins-bold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/poppins-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'poppinsregular';
+    src: url('../assets/fonts/poppins-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/poppins-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'poppinssemibold';
+    src: url('../assets/fonts/poppins-semibold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/poppins-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
@@ -34,7 +75,7 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #f7f708,
+  primary:    #000,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #fdfcfc,
@@ -86,3 +127,4 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
