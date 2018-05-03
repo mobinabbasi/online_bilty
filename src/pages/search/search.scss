@@ -3,8 +3,6 @@ page-search {
     .header button{color: #fff;}
     .title-ios{padding: 32px 20px 1px 30px !important;}
     .toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
-    .notify{background: transparent;box-shadow: none;position: absolute;right: 0;top: 0;}
-    .notify.button-ios{top:20px;}
     .sh-icon {
         position: absolute;
         right:15px;
@@ -67,11 +65,15 @@ page-search {
     }
     .item-inner {
         border-bottom:none !important;
+        box-shadow:none !important;
     }  
     ion-icon{
         font-size: 1.5em;
     }
-    .date{margin-bottom: 25px;margin-top: 5px;}
+    .date{margin-bottom:15px;margin-top: 5px;}
+    .material{margin-bottom: 25px;}
+    .material input{margin-left: 0 !important; font-size: 14px;}
+    .material ion-label{margin: 0;}
     .location{margin-bottom:15px;}
     .location ion-label{color:#bababa !important;}
     ion-label{
@@ -89,7 +91,7 @@ page-search {
     .Sign, .Sign.activated{
         color: #fff;
         background-color: #e76c1a;
-        font-weight: 100;
+        font-weight:500;
         width: 70%;
         margin: 25px auto 0;
     }
