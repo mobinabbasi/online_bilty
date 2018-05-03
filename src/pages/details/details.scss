@@ -60,7 +60,7 @@ page-details {
         border:none;
     }
     .about-trans ion-icon{
-        color:#e76c1a;
+        color:#236e9b;
         font-size: 2.3rem;
     }
     .about-trans ion-label{
@@ -80,5 +80,20 @@ page-details {
         font-size: 13px;
         font-weight: 400 !important;
         margin: 0 0 5px;
+    }
+    ion-footer:before{
+        display: none;
+    }
+    ion-buttons{
+        margin: 0;
+    }
+    .select-btn, .select-btn.activated{
+        background-color: #e76c1a !important;
+        margin: 0 0;
+        color: #fff;
+        padding: 25px 15px !important;
+        text-transform: capitalize !important;
+        font-weight:500;
+        font-size: 16px; 
     }
 }

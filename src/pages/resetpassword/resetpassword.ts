@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 /**
- * Generated class for the DetailsPage page.
+ * Generated class for the ResetpasswordPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,18 +10,18 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 
 @IonicPage()
 @Component({
-  selector: 'page-details',
-  templateUrl: 'details.html',
+  selector: 'page-resetpassword',
+  templateUrl: 'resetpassword.html',
 })
-export class DetailsPage {
+export class ResetpasswordPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   showAlert() {
     let alert = this.alertCtrl.create({
-      title: 'Thank you!',
-      subTitle: 'Your Transporter will connect with you soon.',
+      title: 'Done',
+      subTitle: 'Password has been reset.',
       buttons: ['OK']
     });
     alert.present();
