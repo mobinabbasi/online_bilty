@@ -15,11 +15,14 @@ import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import { ServiceProvider } from '../providers/service/service';
 import {Facebook} from '@ionic-native/facebook';
+import { RegisteredPage } from '../pages/registered/registered';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    RegisteredPage
+    
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,9 @@ import {Facebook} from '@ionic-native/facebook';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    RegisteredPage
+    
   ],
   providers: [
     StatusBar,

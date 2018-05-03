@@ -2,13 +2,16 @@
 
     <h1 class="logo">Online<strong>Bilty</strong></h1>
     <h5 class="ab-logo">Signup to join</h5>
-    <form  novalidate>
+    <form   [formGroup]="Cust" (ngSubmit)="NewCust()" >
         <ion-item>
-            <ion-label floating><ion-icon name="call"></ion-icon>Phone Number</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label floating><ion-icon ></ion-icon>Phone Number</ion-label>
+            <ion-input type="number" formControlName="user_phonenum"
+            [class.invalid]="!Cust.controls.user_phonenum.valid && Cust.controls.user_phonenum.dirty"></ion-input>
           </ion-item>
-  
-          <button ion-button full class="Sign" navPush="VerifyPage">Submit</button>
+          <ion-item class="error-message" *ngIf="!Cust.controls.user_phonenum.valid && Cust.controls.user_phonenum.dirty" no-lines>
+            <p>Pleace Enter Valid Number</p>
+          </ion-item>
+          <button ion-button full class="Sign" [disabled]="!Cust.valid" type="submit">Submit</button>
           <div class="btn-devider">OR</div>
           <button ion-button (click)="loginWithFB()" full class="fb-btn"> <ion-icon  name="logo-facebook" md="logo-facebook" class="fb-icon"></ion-icon>
             Signup with Facebook</button>
@@ -17,7 +20,7 @@
 <ion-footer>
   <ion-buttons>
         <ul class="sign-call">
-            <li><p>Already a Member?</p><button ion-button clear full class="newUser" navPush="LoginPage">Login</button></li>
+            <li><p>Already a Member?</p><button  ion-button clear full class="newUser" navPush="LoginPage">Login</button></li>
         </ul>
 </ion-buttons>
 </ion-footer>

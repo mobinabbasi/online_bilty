@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController , NavParams} from 'ionic-angular';
+import {ServiceProvider} from '../../providers/service/service';
+import {RegisteredPage} from '../registered/registered';
 
 @Component({
   selector: 'page-home',
@@ -7,16 +9,25 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private service: ServiceProvider,
+    public navParams: NavParams) {
 
   }
 
   register(){
     this.navCtrl.push('RegisteredPage');
+    
   }
 
-  login(){
-    this.navCtrl.push('LoginPage');
+  cust(a){
+    //this.navCtrl.setRoot('LoginPage');
+    this.navCtrl.push(RegisteredPage, {a: a});
+    console.log(a);
+  }
+
+  trans(b){
+    this.navCtrl.push(RegisteredPage, {b: b});
+    console.log(b);
   }
 
 }
