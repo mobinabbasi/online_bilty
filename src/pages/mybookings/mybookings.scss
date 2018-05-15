@@ -1,0 +1,65 @@
+page-mybookings {
+    .toolbar-background{background:#0c6f9b;}
+    .header button{color: #fff;}
+    .title-ios{padding:20px 20px 1px 30px !important;}
+    .toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
+    .scroll-content{
+        padding:0 0 !important;
+    }
+    ion-item{
+        padding-left: 0 !important;
+    }
+    ion-label{
+        padding-left:70px;
+        font-weight: 500;
+    }
+    .truck_wrap{
+        position: relative;
+    }
+    .truck_img{
+        position: absolute;
+        left: 15px;
+        z-index: 999;
+        top:15px;
+    }
+    .truck_wrap ion-label{
+        position: relative;
+        text-transform: capitalize !important;
+        font-size: 14px;
+    }
+    .truck_wrap .duration{
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #666;
+        font-weight: 400;
+        font-size: 13px;
+    }
+    .truck_wrap ion-label small{
+        display: block;
+        margin-top: 5px;
+        font-weight: 500;
+    }
+    .running{
+        color: #e76c1a;
+    }
+    .complete{
+        color: #77c412;
+    }
+    .truck_wrap ion-label p{
+        margin:7px 0 !important;
+        color: #666666 !important;
+        font-weight: 400;
+        font-size:12px !important;
+    }
+    .truck_wrap ion-label p span{margin: 0 10px;}
+    .truck_wrap ion-label p .fa{
+        padding-right: 5px;
+    }
+    .recent {
+        padding: 15px;
+        background: #eee;
+        margin: 0;
+        font-weight: 400;
+    }
+}

@@ -7,7 +7,7 @@ import {Facebook , FacebookLoginResponse} from '@ionic-native/facebook';
 import {ServiceProvider} from '../../providers/service/service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs/Rx";
-
+import {RegisteredPage} from '../../pages/registered/registered';
 
 
 
@@ -30,6 +30,9 @@ export class LoginPage {
 
     
 
+  }
+  register() {
+    this.navCtrl.setRoot(RegisteredPage);
   }
 
   // getUsers() {

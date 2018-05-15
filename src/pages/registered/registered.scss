@@ -4,7 +4,7 @@ page-registered {
         border-bottom: 1px solid #f60909;
       }
     .error-message {
-        //margin-top: 1px;
+        color: red;
         
       }
 
@@ -41,13 +41,13 @@ page-registered {
             margin-top:25px;
             color: #fff;
             background-color: #e76c1a;
-            font-weight: 100;
+            font-weight:500;
         }
     .fb-btn, .fb-btn.activated{
             color: #fff;
             background-color: #3a589b;
             position: relative;
-            font-weight: 100;
+            font-weight:500;
         }
     .fb-btn .fb-icon{
             position: absolute;
@@ -62,7 +62,6 @@ page-registered {
     .scroll-content{
         padding: 50px 30px 15px!important;
         overflow-y: hidden;
-        margin-bottom: 0 !important;
     }
     .item-inner {
         border-bottom: 1px solid #999999 !important;

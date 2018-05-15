@@ -1,0 +1,63 @@
+page-filter {
+    .toolbar-background{background:#0c6f9b;}
+    .header button{color: #fff;margin: 0;}
+    .title-ios{padding:20px 20px 1px 30px !important;}
+    .toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
+    .rest-btn{
+        padding-right:15px;    
+        text-transform: capitalize !important;
+    }
+    .bar-button-ios {
+        padding: 0 15px;
+    }
+    .scroll-content {
+        padding: 0 0 !important;
+    }
+    .recent {
+        padding: 15px;
+        background: #eee;
+        margin: 0;
+        font-weight: 400;
+    }
+    .t-type{padding: 15px 0 15px 16px;}
+    .t-type ion-label{padding-left: 0;font-size: 16px;color: #999 !important;}
+    .t-type ion-label .fa{float: right;font-size:24px;}
+    .t-type  .item-inner {
+       border:none !important;
+    }  
+    .price{
+        padding: 15px 16px 15px 16px;
+    }
+    .price ion-label{
+        position: absolute;
+        right:15px;
+        top: 20px;
+    }
+    .price input{
+        margin-left: 0 !important;
+        color: #666;
+    }
+    ion-icon{
+        font-size: 1.5em;
+    }
+    ion-label{
+            color: #333 !important;
+            font-size: 14px;
+            padding-left: 15px;
+        }
+    ion-footer:before{
+        display: none;
+    }
+    ion-buttons{
+        margin: 0;
+    }
+    .select-btn, .select-btn.activated{
+        background-color: #e76c1a !important;
+        margin: 0 0;
+        color: #fff;
+        padding: 25px 15px !important;
+        text-transform: capitalize !important;
+        font-weight:500;
+        font-size: 16px; 
+    }
+}

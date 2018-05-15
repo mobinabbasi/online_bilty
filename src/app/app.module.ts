@@ -16,6 +16,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { ServiceProvider } from '../providers/service/service';
 import {Facebook} from '@ionic-native/facebook';
 import { RegisteredPage } from '../pages/registered/registered';
+import {Network} from '@ionic-native/network';
+import { NetworkProvider } from '../providers/network/network';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { RegisteredPage } from '../pages/registered/registered';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    
+    
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +51,10 @@ import { RegisteredPage } from '../pages/registered/registered';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ServiceProvider,
-    Facebook
+    Facebook,
+    Network,
+    NetworkProvider,
+    
   ]
 })
 export class AppModule {}

@@ -8,10 +8,13 @@
             <ion-input type="number" formControlName="user_phonenum"
             [class.invalid]="!Cust.controls.user_phonenum.valid && Cust.controls.user_phonenum.dirty"></ion-input>
           </ion-item>
-          <ion-item class="error-message" *ngIf="!Cust.controls.user_phonenum.valid && Cust.controls.user_phonenum.dirty" no-lines>
-            <p>Pleace Enter Valid Number</p>
-          </ion-item>
+          <!-- <ion-item > -->
+            <p class="error-message" *ngIf="!Cust.controls.user_phonenum.valid && Cust.controls.user_phonenum.dirty">
+                Pleace Enter Valid Number
+            </p>
+          <!-- </ion-item> -->
           <button ion-button full class="Sign" [disabled]="!Cust.valid" type="submit">Submit</button>
+          <!-- <button ion-button full (click)="getData()">try get method</button> -->
           <div class="btn-devider">OR</div>
           <button ion-button (click)="loginWithFB()" full class="fb-btn"> <ion-icon  name="logo-facebook" md="logo-facebook" class="fb-icon"></ion-icon>
             Signup with Facebook</button>

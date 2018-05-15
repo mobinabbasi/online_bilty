@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the VerifyPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {ServiceProvider} from '../../providers/service/service';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Http } from '@angular/http';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+//import {PasswordPage} from '../../pages/password/password';
 
 @IonicPage()
 @Component({
@@ -14,12 +12,44 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'verify.html',
 })
 export class VerifyPage {
+num : any;
+user_type: any;
+private OTP: FormGroup;
+verfy_otp: any;
+main_OTP: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams
+  ,public formBuilder: FormBuilder,public service: ServiceProvider,public http:Http,public alert: AlertController
+) {
+    this.num =  navParams.get('Number');
+    this.user_type =  navParams.get('type');
+    this.main_OTP =  navParams.get('OTP');
+    console.log( this.main_OTP );
+
+   
+
+    this.OTP =  formBuilder.group({
+      otp_verfy: ['', Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(5)])]
+    })
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VerifyPage');
+  verify_otp() {
+    if(this.OTP.value.otp_verfy === this.main_OTP){
+      this.navCtrl.setRoot('PasswordPage',{
+        Number: this.num,
+        type:this.user_type
+      });
+      //console.log('sucessfull');
+    } else {
+      let alert = this.alert.create({
+        title: 'OTP Wrong',
+        message: 'Please Try Again!',
+        buttons: ['OK']
+      })
+      alert.present();
+    }
+
   }
 
 }

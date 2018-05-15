@@ -26,8 +26,7 @@ export class HomePage {
   }
 
   trans(b){
-    this.navCtrl.push(RegisteredPage, {b: b});
-    console.log(b);
+     this.navCtrl.push(RegisteredPage);
   }
 
 }

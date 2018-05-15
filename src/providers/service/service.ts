@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 //import { Observable } from 'rxjs/Observable';
@@ -7,16 +7,17 @@ import 'rxjs/add/operator/map';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import {Facebook , FacebookLoginResponse} from '@ionic-native/facebook';
-//import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 
 import {  HttpHeaders, HttpParams } from '@angular/common/http';
-//import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
+import { Http, Headers, RequestOptions, Response, URLSearchParams,HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/timeout';
 import { Observable } from "rxjs/Rx";
+import { AlertController } from 'ionic-angular';
+import { App } from 'ionic-angular';
+
 
 
 @Injectable()
@@ -26,11 +27,12 @@ export class ServiceProvider {
   userData: any;
   displayName;
   num: any;
-  apiUrl = `http://mobitplus.com/onlinebilty/webservices/registration_new?type=1&phonenumber1234567890=&password=`;
+  
 
-  constructor(public http: HttpClient,public afAuth: AngularFireAuth,
-    private facebook: Facebook,
-     public afd: AngularFireDatabase) {
+  constructor(public http: Http,public afAuth: AngularFireAuth,
+    private facebook: Facebook,public alert :AlertController,
+     public afd: AngularFireDatabase,
+      public app: App) {
       this.authState = afAuth.authState;
 
     this.authState.subscribe(user => {
@@ -38,9 +40,12 @@ export class ServiceProvider {
     });
   }
 
+ 
+
   getUsers() {
+    let apiUrl = `http://mobitplus.com/onlinebilty/webservices/get_data?type=1&phonenumber=7828905789`;
     return new Promise(resolve => {
-      this.http.get(this.apiUrl + '').subscribe(data => {
+      this.http.get(apiUrl).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -48,27 +53,44 @@ export class ServiceProvider {
     });
   }
 
-  addCust(Phonenum , type) {
-    //console.log(type);
-    let api = `http://mobitplus.com/onlinebilty/webservices/registration_new?type=${type}&&phonenumber=${Phonenum.user_phonenum}&password=`;
-     console.log(api)
-      this.num = Phonenum.user_phonenum;
-      this.http.post(api,JSON.stringify(Phonenum))
-      .subscribe(res => {
-        console.log(res);
-      },error => {
-        console.log(error);
-      })
-  }
 
+   addCust(Phonenum, type) {
+     //let OTPapi = `http://mobitplus.com/onlinebilty/webservices/sendotp?type=${type}&phonenumber=${Phonenum.user_phonenum}`; 
+    let api = `http://mobitplus.com/onlinebilty/webservices/registration_new?type=${type}&phonenumber=${Phonenum.user_phonenum}&password=`;
+    //console.log(OTPapi);
+    return Observable.from(new Promise((resolve, reject) => {
+           let headerOptions: any = { 'Content-Type': 'application/json' };
+           let headers = new Headers(headerOptions)
+          const options = new RequestOptions({headers: headers});
+    
+        // this.http.get(OTPapi).timeout(15000)
+        // .subscribe((result:Response) => {
+        //  let otp = result.json();
+        //  console.log(otp);
+        // })
+
+        this.http.get(api)
+          .timeout(15000)
+          .subscribe(res => {
+            let data = res.json();
+            if(data.status == "Failed") {
+              //console.log('already register');
+              let alert = this.alert.create({
+                title: 'Registered',
+                message: `User Aleady Register`,
+                buttons: ['OK']
+              });
+              alert.present();
+            }
+            console.log(data);
+            //console.log(data.status);
+            resolve(res);
+          }, (err) => {
+            reject(err);
+          });
+        }))
+      }
  
-
-  // SignUpUser(name, email, password, confirmpass, number) {
-  //   return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-  //   .then(newUser => {
-  //     this.afd.list('/userProfile').update(newUser.uid, {email:email, name:name});
-  //   });
-  // }
 
   loginWithFB() {
 
