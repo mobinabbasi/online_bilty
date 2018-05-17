@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle class="menu-btn"><ion-icon name="menu"></ion-icon></button>
+    <ion-title>My Bookings</ion-title>     
+</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-menu type="overlay" [content]="menu" class="menu-trans">
+        <ion-content>
+            <ion-item class="user-container">
+                <img src="/assets/imgs/user-img.png">
+                <p>Ram Kishan Transport</p>
+            </ion-item>
+            <div class="links-wrap">
+            <ion-list class="menu-list">
+                <ion-item class="menu-item" navPush="AddlocationPage">
+                    <ion-icon name="pin"></ion-icon>
+                    Add Location
+                </ion-item>
+                <ion-item class="menu-item" navPush="TmybookingsPage">
+                    <ion-icon name="car"></ion-icon>
+                    My Bookings
+                </ion-item>
+                <ion-item class="menu-item" navPush="TnotificationPage">
+                    <ion-icon name="notifications"></ion-icon>
+                    Notification
+                </ion-item>
+                <ion-item class="menu-item" navPush="TprofilePage">
+                    <ion-icon name="person"></ion-icon>
+                    Profile
+                </ion-item>
+                <ion-item class="menu-item logout">
+                    <ion-icon name="person"></ion-icon>
+                    Logout
+                </ion-item>
+            </ion-list>
+            </div>
+        </ion-content>
+    </ion-menu>  
+    <ion-nav #menu [root]="rootPage"></ion-nav> 
+    <ion-label class="recent">All Bookings</ion-label>
+    <ion-list>
+        <ion-item-sliding>
+          <ion-item class="notify-trans">
+            <ion-avatar item-start>
+                <img src="../../assets/imgs/truck.png"> 
+            </ion-avatar>
+            <h2 (click)="showAlert()">Aditya Sharma</h2>
+            <strong class="date">May 3, 2018</strong>
+            <span>Bhopal</span>
+            <span><ion-icon name="arrow-forward"></ion-icon></span>
+            <span>Jabalpur</span>
+            <small>Material</small>
+            <p>Box, Scrap material</p>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="primary" class="dlt">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <ion-item-sliding>
+            <ion-item class="notify-trans">
+              <ion-avatar item-start>
+                  <img src="../../assets/imgs/truck.png"> 
+              </ion-avatar>
+              <h2>Dinesh Raj Sign</h2>
+              <strong class="date">May 3, 2018</strong>
+              <span>Bhopal</span>
+              <span><ion-icon name="arrow-forward"></ion-icon></span>
+              <span>Jabalpur</span>
+              <small>Material</small>
+              <p>Box, Scrap material</p>
+            </ion-item>
+            <ion-item-options side="right">
+              <button ion-button color="primary" class="dlt">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+          <ion-item-sliding>
+              <ion-item class="notify-trans">
+                <ion-avatar item-start>
+                    <img src="../../assets/imgs/truck.png"> 
+                </ion-avatar>
+                <h2>Raj Sign</h2>
+                <strong class="date">May 3, 2018</strong>
+                <span>Bhopal</span>
+                <span><ion-icon name="arrow-forward"></ion-icon></span>
+                <span>Jabalpur</span>
+                <small>Material</small>
+                <p>Box, Scrap material</p>
+              </ion-item>
+              <ion-item-options side="right">
+                <button ion-button color="primary" class="dlt">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+              </ion-item-options>
+            </ion-item-sliding>
+            <ion-item-sliding>
+                <ion-item class="notify-trans">
+                  <ion-avatar item-start>
+                      <img src="../../assets/imgs/truck.png"> 
+                  </ion-avatar>
+                  <h2>Kamlesh Diwan</h2>
+                  <strong class="date">May 3, 2018</strong>
+                  <span>Bhopal</span>
+                  <span><ion-icon name="arrow-forward"></ion-icon></span>
+                  <span>Jabalpur</span>
+                  <small>Material</small>
+                  <p>Box, Scrap material</p>
+                </ion-item>
+                <ion-item-options side="right">
+                  <button ion-button color="primary" class="dlt">
+                    <ion-icon name="trash"></ion-icon>
+                  </button>
+                </ion-item-options>
+              </ion-item-sliding>
+    </ion-list>
+      
+</ion-content>

@@ -1,0 +1,107 @@
+page-tnotification {
+    .toolbar-background{background:#0c6f9b;}
+    .header button{color: #fff;}
+    .title-ios{padding:20px 20px 1px 30px !important;}
+    .toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
+    .scroll-content{
+        padding:0 !important;
+    }
+    .sh-icon {
+        position: absolute;
+        right:15px;
+        top:12px;
+    }
+    
+    .menu-btn{display:block !important;}
+    .menu-inner .scroll-content{
+        padding:0 !important;
+        background:#f9f9f9;
+    }
+    .menu-inner{
+        position: relative;
+    }
+    .user-container{
+        padding:25px 0 15px 30px;
+        border-bottom:1px solid #ddd;
+    }
+    .user-container .label{
+        padding-left: 0;
+    }
+    .user-container p{
+        color: #000;
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: 16px;
+        margin: 5px 0;
+    }
+    .menu-list{
+        padding:20px 0;
+        background:#f9f9f9;
+    }
+    .links-wrap{
+        background: #f9f9f9;
+    }
+    .menu-item {
+        padding: 7px 16px;
+        background: #f9f9f9;
+    }
+    .menu-item.item-ios {
+        border: none !important;
+    }
+    .menu-item.logout {
+        position: absolute;
+        bottom:20px;
+    }
+    .menu-item ion-label{
+        font-size: 16px;
+        color: #000 !important;
+    }
+    .menu-item ion-label ion-icon{
+        padding-right:15px;
+        font-size: 20px;
+        vertical-align: middle;
+    }
+    .menu-trans .item-inner {
+        border-bottom:none !important;
+        box-shadow:none !important;
+    }  
+    .recent {
+        padding: 15px;
+        background: #eee;
+        margin: 0;
+        font-weight: 400;
+    }
+    .notify-trans{
+        border-bottom: 0.55px solid #c8c7cc;
+    }
+    .notify-trans .item-inner{
+        border-bottom: none !important;
+    }
+    .notify-trans ion-avatar{
+        margin-top: -25px !important;
+    }
+    .notify-trans ion-icon{
+        color: #999;
+    }
+    .notify-trans h2{
+        white-space: normal;
+        font-size: 16px;
+    }
+    .notify-trans h2 span{
+        color: #666;
+    }
+    .notify-trans small{
+        display: block;
+    color: #999;
+    margin: 15px 0 5px 0;
+    }
+    .notify-trans p{
+        font-size:14px;
+        color: #333;
+    }
+    .dlt, .dlt.activated{
+        background: #e76c1a;
+    }
+    
+}
+
