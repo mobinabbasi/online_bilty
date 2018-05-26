@@ -17,6 +17,9 @@ user_type: any;
 private OTP: FormGroup;
 verfy_otp: any;
 main_OTP: any;
+update_OTP: any;
+
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams
   ,public formBuilder: FormBuilder,public service: ServiceProvider,public http:Http,public alert: AlertController
@@ -26,16 +29,16 @@ main_OTP: any;
     this.main_OTP =  navParams.get('OTP');
     console.log( this.main_OTP );
 
-   
-
     this.OTP =  formBuilder.group({
       otp_verfy: ['', Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(5)])]
     })
 
   }
+   
 
   verify_otp() {
-    if(this.OTP.value.otp_verfy === this.main_OTP){
+    
+    if(this.OTP.value.otp_verfy === this.main_OTP) {
       this.navCtrl.setRoot('PasswordPage',{
         Number: this.num,
         type:this.user_type
@@ -49,7 +52,17 @@ main_OTP: any;
       })
       alert.present();
     }
+  }
 
+  reSend() {
+    let API = `http://mobitplus.com/onlinebilty/webservices/sendotp?type=${this.user_type}&phonenumber=${this.num}`;
+    
+    this.http.get(API).subscribe((res) => {
+      let new_otp = res.json();
+     // let New = new_otp.user_otp;
+    // this.update_OTP = new_otp.user_otp
+      console.log(new_otp);
+    })
   }
 
 }

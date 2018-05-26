@@ -21,7 +21,7 @@
             <button ion-button full class="Sign"  type="submit" [disabled]="!OTP.valid">Submit</button>
       </form>
       <ul class="sign-call">
-        <li><button ion-button clear full class="newUser">Resend OTP</button></li>
+        <li><button ion-button clear full class="newUser" (click)="reSend()">Resend OTP</button></li>
       </ul>
 </ion-content>
 

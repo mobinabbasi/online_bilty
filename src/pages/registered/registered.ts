@@ -38,8 +38,9 @@ export class RegisteredPage {
     let type;
     this.ty = this.navParams.get('a');
    // console.log(this.ty); 
-        if(this.ty == 2) {
+        if(this.ty === 2) {
            type = this.ty;
+           
         } else {
           type = 1;
         }
@@ -67,8 +68,18 @@ export class RegisteredPage {
       });
     }
 
-  // loginWithFB() {
-  //   this.service.loginWithFB();
-  // }
+    login_set() {
+      let type;
+      this.ty = this.navParams.get('a');
+     // console.log(this.ty); 
+          if(this.ty === 2) {
+             type = this.ty;
+          } else {
+            type = 1;
+          }
+    this.navCtrl.setRoot('LoginPage', {
+      type: type,
+    });
+  }
   
 }

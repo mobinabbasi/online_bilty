@@ -38,7 +38,7 @@
             </div>
         </ion-content>
     </ion-menu>  
-    <ion-nav #menu [root]="rootPage"></ion-nav> 
+    <ion-nav #menu [root]="rootPage"></ion-nav>
     <ion-item class="sh-item date">
         <ion-label><ion-icon name="calendar" class="sh-icon"></ion-icon></ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
@@ -47,11 +47,13 @@
         <ion-label><ion-icon name="cube" class="sh-icon"></ion-icon></ion-label>
         <ion-input type="text" placeholder="Material Type"></ion-input>
     </ion-item>
-    <ion-item class="sh-item location" navPush="SearchLocationPage">
-        <ion-label>From<ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+    <ion-item class="sh-item location material" navPush="SearchLocationPage">
+        <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+        <ion-input placeholder="From"></ion-input>
     </ion-item>
-    <ion-item class="sh-item location" navPush="SearchLocationPage">
-        <ion-label>To<ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+    <ion-item class="sh-item location material" navPush="SearchLocationPage">
+        <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+        <ion-input placeholder="To"></ion-input>
     </ion-item>
   <button ion-button full class="Sign" navPush="TrucktypePage">Search</button>
 </ion-content>

@@ -1,15 +1,19 @@
 <ion-content  padding>
       <h1 class="logo">Online<strong>Bilty</strong></h1>
 
-      <form   novalidate>
+      <form   [formGroup]="Login" (ngSubmit)="_login()" novalidate>
           <ion-item>
               <ion-label floating><ion-icon name="call"></ion-icon>Phone Number</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input type="number" formControlName="number"
+              [class.invalid]="!Login.controls.number.valid && Login.controls.number.dirty"></ion-input>
             </ion-item>
+            <p class="error" *ngIf="!Login.controls.number.valid && Login.controls.number.dirty">
+              Pleace Enter Valid Number
+            </p>
           
             <ion-item>
               <ion-label floating><ion-icon name="lock"></ion-icon>Password</ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-input type="password" formControlName="password"></ion-input>
 <!-- <<<<<<< HEAD -->
               <!-- </ion-item> -->
                 
@@ -18,14 +22,14 @@
 =======
             </ion-item>
     
-            <button ion-button full class="Sign" navPush="SearchPage">Login</button>
-            <button ion-button class="reset_pass" navPush="ResetPage">forgot password?</button>
-<!-- >>>>>>> 7e46e6d98e25356dc015acfc0dccb804e6935e20 -->
-            <div class="btn-devider">OR</div>
-            <button ion-button (click)="loginWithFB()" full class="fb-btn">
-              <ion-icon  name="logo-facebook" md="logo-facebook" class="fb-icon"></ion-icon>
-              login with Facebook</button>
+            <button ion-button full class="Sign" type="submit" [disabled]="!Login.valid">Login</button>
       </form>
+      <button ion-button class="reset_pass" navPush="" (click)="forget_pass()">forgot password?</button>
+      <!-- >>>>>>> 7e46e6d98e25356dc015acfc0dccb804e6935e20 -->
+                  <div class="btn-devider">OR</div>
+                  <button ion-button (click)="loginWithFB()" full class="fb-btn">
+                    <ion-icon  name="logo-facebook" md="logo-facebook" class="fb-icon"></ion-icon>
+                    login with Facebook</button>
 </ion-content>
 <ion-footer>
     <ion-buttons>
