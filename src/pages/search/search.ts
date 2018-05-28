@@ -8,8 +8,13 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
   templateUrl: 'search.html',
 })
 export class SearchPage {
+  public info:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
+    const data = JSON.parse(localStorage.getItem('Data'));
+    this.info = data;
+    console.log(this.info);
+
   }
 
   toggleMenu() {

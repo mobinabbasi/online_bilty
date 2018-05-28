@@ -159,19 +159,19 @@ export class ServiceProvider {
     });
   }
 
-  login(credentials) {
-    let API = `http://mobitplus.com/onlinebilty/webservices/login?type=2&phonenumber=9874563210`;
-    return new Promise((resolve, reject) => {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
+  // login(credentials) {
+  //   let API = `http://mobitplus.com/onlinebilty/webservices/login?type=2&phonenumber=9874563210`;
+  //   return new Promise((resolve, reject) => {
+  //       let headers = new Headers();
+  //       headers.append('Content-Type', 'application/json');
 
-        this.http.post(API ,JSON.stringify(credentials), {headers: headers})
-          .subscribe(res => {
-            resolve(res.json());
-          }, (err) => {
-            reject(err);
-          });
-    });
-  }
+  //       this.http.post(API ,JSON.stringify(credentials), {headers: headers})
+  //         .subscribe(res => {
+  //           resolve(res.json());
+  //         }, (err) => {
+  //           reject(err);
+  //         });
+  //   });
+  // }
   
 }
