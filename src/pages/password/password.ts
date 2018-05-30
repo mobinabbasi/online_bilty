@@ -30,6 +30,7 @@ private set_password: FormGroup;
     if(this.set_password.value.confirm_pass === this.set_password.value.pass) {
       return this.http.get(setAPI).subscribe((res) => {
         let set = res.json();
+        localStorage.setItem('Data',JSON.stringify(set));
         this.navCtrl.setRoot('SearchPage');
         console.log(set);
       })

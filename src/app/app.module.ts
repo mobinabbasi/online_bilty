@@ -20,12 +20,29 @@ import {Network} from '@ionic-native/network';
 import { NetworkProvider } from '../providers/network/network';
 
 
+// import {ConfirmPage} from '../pages/confirm/confirm';
+// import {DetailsPage} from '../pages/details/details';
+// import {FilterPage} from '../pages/filter/filter';
+// //import {LoginPage} from '../pages/login/login';
+// import {MybookingsPage} from '../pages/mybookings/mybookings';
+// import {MytruckPage} from '../pages/mytruck/mytruck';
+// import {NotificationPage} from '../pages/notification/notification';
+// import {PasswordPage} from '../pages/password/password';
+// import {ProfilePage} from '../pages/profile/profile';
+// import {ProfilepasswordPage} from '../pages/profilepassword/profilepassword';
+// //import {RegisteredPage} from '../pages/registered/registered';
+// import {ResetPage} from '../pages/reset/reset';
+// import {ResetpasswordPage} from '../pages/resetpassword/resetpassword';
+// import {SearchPage} from '../pages/search/search';
+// import {SearchLocationPage} from '../pages/search-location/search-location';
+// import {TrucktypePage} from '../pages/trucktype/trucktype';
+// import {VerifyPage} from '../pages/verify/verify';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     RegisteredPage
-    
   ],
   imports: [
     BrowserModule,
@@ -43,9 +60,8 @@ import { NetworkProvider } from '../providers/network/network';
   entryComponents: [
     MyApp,
     HomePage,
-    RegisteredPage
-    
-  ],
+    RegisteredPage,
+    ],
   providers: [
     StatusBar,
     SplashScreen,

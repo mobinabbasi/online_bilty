@@ -56,7 +56,7 @@ export class LoginPage {
 
           //this.navCtrl.setRoot('SearchPage');
           localStorage.setItem('Data',JSON.stringify(Data));
-          this.navCtrl.setRoot('SearchPage');
+          this.navCtrl.push('SearchPage');
           //console.log(user);
         } else {
           let Alert = this.alert.create({

@@ -13,8 +13,15 @@
     <ion-menu type="overlay" [content]="menu">
         <ion-content>
             <ion-item class="user-container">
-                <img src="/assets/imgs/user-img.png">
-                <p>Suresh Tiwari</p>
+                    <!-- <ion-thumbnail item-start>
+                            <img src="">
+                          </ion-thumbnail> -->
+                    <ion-avatar>
+                            <img  src="{{this.info.profile_pic}}">
+                      </ion-avatar>
+                <!-- <img src=""> -->
+                <p>{{this.info.user_name}}</p>
+                <span>{{this.Type}}</span>
             </ion-item>
             <div class="links-wrap">
             <ion-list class="menu-list">
@@ -30,7 +37,7 @@
                     <ion-icon name="person"></ion-icon>
                     Profile
                 </ion-item>
-                <ion-item class="menu-item logout">
+                <ion-item class="menu-item logout" (click)="_Logout()" id="logout">
                     <ion-icon name="person"></ion-icon>
                     Logout
                 </ion-item>

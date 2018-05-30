@@ -10,11 +10,15 @@ import { Network } from '@ionic-native/network';
 import { initializeApp } from 'firebase/app';
 
 
+
+
+
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  rootPage = HomePage;
   // Online;
   // Offline
 
