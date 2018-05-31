@@ -1,4 +1,13 @@
 page-registered {
+
+    .invalid {
+        border-bottom: 1px solid #f60909;
+      }
+    .error-message {
+        color: red;
+        
+      }
+
     .logo {
         text-align: left;
         font-size: 38px;

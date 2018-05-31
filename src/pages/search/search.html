@@ -13,8 +13,15 @@
     <ion-menu type="overlay" [content]="menu">
         <ion-content>
             <ion-item class="user-container">
-                <img src="/assets/imgs/user-img.png">
-                <p>Suresh Tiwari</p>
+                    <!-- <ion-thumbnail item-start>
+                            <img src="">
+                          </ion-thumbnail> -->
+                    <ion-avatar>
+                            <img  src="{{this.info.profile_pic}}">
+                      </ion-avatar>
+                <!-- <img src=""> -->
+                <p>{{this.info.user_name}}</p>
+                <span>{{this.Type}}</span>
             </ion-item>
             <div class="links-wrap">
             <ion-list class="menu-list">
@@ -30,7 +37,7 @@
                     <ion-icon name="person"></ion-icon>
                     Profile
                 </ion-item>
-                <ion-item class="menu-item logout">
+                <ion-item class="menu-item logout" (click)="_Logout()" id="logout">
                     <ion-icon name="person"></ion-icon>
                     Logout
                 </ion-item>
@@ -38,7 +45,7 @@
             </div>
         </ion-content>
     </ion-menu>  
-    <ion-nav #menu [root]="rootPage"></ion-nav> 
+    <ion-nav #menu [root]="rootPage"></ion-nav>
     <ion-item class="sh-item date">
         <ion-label><ion-icon name="calendar" class="sh-icon"></ion-icon></ion-label>
         <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
@@ -47,11 +54,13 @@
         <ion-label><ion-icon name="cube" class="sh-icon"></ion-icon></ion-label>
         <ion-input type="text" placeholder="Material Type"></ion-input>
     </ion-item>
-    <ion-item class="sh-item location" navPush="SearchLocationPage">
-        <ion-label>From<ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+    <ion-item class="sh-item location material" navPush="SearchLocationPage">
+        <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+        <ion-input placeholder="From"></ion-input>
     </ion-item>
-    <ion-item class="sh-item location" navPush="SearchLocationPage">
-        <ion-label>To<ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+    <ion-item class="sh-item location material" navPush="SearchLocationPage">
+        <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+        <ion-input placeholder="To"></ion-input>
     </ion-item>
   <button ion-button full class="Sign" navPush="TrucktypePage">Search</button>
 </ion-content>

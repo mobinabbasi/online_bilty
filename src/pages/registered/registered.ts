@@ -3,6 +3,10 @@ import { IonicPage, NavController, NavParams, Loading, LoadingController, AlertC
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ServiceProvider} from '../../providers/service/service';
 import {EmailValidator} from '../../validator/email';
+import { Observable } from "rxjs/Rx";
+import { Http } from '@angular/http';
+import { HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -14,30 +18,68 @@ import {EmailValidator} from '../../validator/email';
 export class RegisteredPage {
   public SignUpForm: FormGroup;
   loading: Loading;
+  private Cust : FormGroup;
+  ty : any;
+  public list : any;
 
+  
   constructor(public navCtrl: NavController, public service: ServiceProvider,
     public formBuilder: FormBuilder, public loadingCtrl: LoadingController,
+    public navParams: NavParams,
     public alertCtrl: AlertController) {
 
-      this.SignUpForm = formBuilder.group({
-        name:['', Validators.compose([Validators.required, Validators.minLength(3)])],
-        email:['', Validators.compose([Validators.required, EmailValidator.isValid])],
-        password:['', Validators.compose([Validators.required, Validators.minLength(8)])],
-        confirmpass:['', Validators.compose([Validators.required, Validators.minLength(8)])],
-        number:['', Validators.compose([Validators.required,Validators.minLength(10)])],
-        //checkBox: ['', Validators.compose([checkbox checked validation])]
+      this.Cust = formBuilder.group({
+        user_phonenum : ['', Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(10)])]
       });
   }
 
-  SignUp() {
-    if (this.SignUpForm.valid) {
-      this.loading = this.loadingCtrl.create();
-      this.loading.present();
+  
+  NewCust() {
+    let type;
+    this.ty = this.navParams.get('a');
+   // console.log(this.ty); 
+        if(this.ty === 2) {
+           type = this.ty;
+           
+        } else {
+          type = 1;
+        }
+        
+    this.service.addCust(this.Cust.value,type).subscribe((res: Response) => {
+     // this.list = res;
+      this.list = res.json();
+     // console.log(this.list.user_otp
+      //);
+      if(this.list.status == "Success") {
+        this.navCtrl.setRoot('VerifyPage',{
+          Number: this.Cust.value.user_phonenum,
+          type: type,
+          OTP: this.list.user_otp
+        });
+      }
+      //console.log(this.list.status);
+     })
+    
     }
-  }
 
-  loginWithFB() {
-    this.service.loginWithFB();
+    getData() {
+      this.service.getUsers().then(data => {
+        console.log(data);
+      });
+    }
+
+    login_set() {
+      let type;
+      this.ty = this.navParams.get('a');
+     // console.log(this.ty); 
+          if(this.ty === 2) {
+             type = this.ty;
+          } else {
+            type = 1;
+          }
+    this.navCtrl.setRoot('LoginPage', {
+      type: type,
+    });
   }
   
 }

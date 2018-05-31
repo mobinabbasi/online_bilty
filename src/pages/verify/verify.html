@@ -6,15 +6,22 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding >
       <div class="top-head">
         <h3 class="the-title">Verification Code</h3>
-        <p>Please type the code send to</p>
-        <p>+91-5896321747</p>
-      </div>  
-      <button ion-button full class="Sign" navPush="PasswordPage">Submit</button>
+        <p>Please type the OTP(code) send to</p>
+        <strong>+91-{{this.num}}</strong>
+      </div>
+      
+      <form   [formGroup]="OTP" (ngSubmit)="verify_otp()">
+          <ion-item>
+              <ion-input type="number" formControlName="otp_verfy"></ion-input>
+          </ion-item>
+            
+            <button ion-button full class="Sign"  type="submit" [disabled]="!OTP.valid">Submit</button>
+      </form>
       <ul class="sign-call">
-          <li> <button ion-button clear full class="newUser">Resend OTP</button></li>
+        <li><button ion-button clear full class="newUser" (click)="reSend()">Resend OTP</button></li>
       </ul>
 </ion-content>
 
