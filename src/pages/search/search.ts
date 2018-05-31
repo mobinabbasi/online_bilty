@@ -27,9 +27,10 @@ export class SearchPage {
   }
 
   backToWL() {
-    let root = this.app.getRootNav();
-    root.popToRoot();
-    this.menuCtrl.enable(false);
+    // let root = this.app.getRootNav();
+    // root.setRoot();
+   // this.menuCtrl.enable(false);
+    this.navCtrl.setRoot(HomePage);
   }
 
   _Logout() {
@@ -37,7 +38,8 @@ export class SearchPage {
     // root.popToRoot();
     //this.navCtrl.setRoot('HomePage');
     localStorage.clear();
-    setTimeout(() => this.backToWL(),100);
+    this.menuCtrl.enable(false);
+    setTimeout(() => this.backToWL(),500);
   }
 
   toggleMenu() {

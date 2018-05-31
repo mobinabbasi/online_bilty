@@ -21,12 +21,13 @@ export class HomePage {
 
   cust(a){
     //this.navCtrl.setRoot('LoginPage');
-    this.navCtrl.push(RegisteredPage, {a: a});
+    this.navCtrl.push(RegisteredPage, {type: a});
     console.log(a);
   }
 
   trans(b){
-     this.navCtrl.push(RegisteredPage);
+     this.navCtrl.push(RegisteredPage,{type: b});
+     console.log(b);
   }
 
 }

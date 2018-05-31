@@ -48,7 +48,10 @@ private Reset: FormGroup;
                       message: 'Please Try Again!',
                       buttons: [{
                         text: "OK",
-                        handler: () => { this.navCtrl.setRoot(HomePage); }
+                        handler: () => { this.navCtrl.setRoot('LoginPage' ,{
+                          type: this.type
+                        }) }
+                        //handler: () => { this.navCtrl.setRoot(HomePage); }
                       }],
                     });
                     alert.present();
@@ -56,7 +59,12 @@ private Reset: FormGroup;
                 let alert = this.alertCtrl.create({
                      title: 'Done',
                      subTitle: 'Password has been reset.!',
-                     buttons: ['OK']
+                     buttons: [{
+                      text: "OK",
+                      handler: () => { this.navCtrl.setRoot('LoginPage' ,{
+                        type: res.user_type
+                      }) }
+                     }]
                   });
                     alert.present();
                     }
