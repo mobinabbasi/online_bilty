@@ -1,0 +1,50 @@
+page-vehiclepro {
+    .toolbar-background{background:#0c6f9b;}
+    .header button{color: #fff;}
+    .title-ios{padding:20px 20px 1px 30px !important;}
+    .toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
+    .scroll-content{
+        padding:0 30px !important;
+        overflow-y:scroll !important;
+    }
+    .sh-icon {
+        position: absolute;
+        right:15px;
+        top:12px;
+    }
+    
+    ion-icon{
+        font-size: 1.5em;
+    }
+    ion-label{
+            color: #333 !important;
+            font-size: 14px;
+            padding-left: 15px;
+        }
+   .item-inner {
+        border-bottom: 1px solid #999999 !important;
+    }  
+    .form-trans ion-icon{
+        font-size: 1.5em;
+        padding-right: 15px;
+    }
+    .form-trans ion-label{
+            font-size: 14px;
+            margin-bottom: 5px !important;
+            color: #000 !important;
+            padding-left: 0;
+        }
+    .form-trans ion-item{padding-left: 0 !important;}
+    .fa-inr{
+        padding-right:20px;
+        font-size: 16px;
+    }
+    .charge{
+        position:relative;
+    }
+    .unit{
+        position: absolute;
+        right: 30px;
+        top: 35%;
+    }
+}

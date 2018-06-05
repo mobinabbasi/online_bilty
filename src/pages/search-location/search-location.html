@@ -8,8 +8,8 @@
 <ion-content padding>  
 <ion-searchbar (ionInput)="getItems($event)" placeholder="Enter Location (City/State)"></ion-searchbar>
 <ion-list>
-  <ion-item *ngFor="let city of cities">
-    {{city.uerslist.city_name}}
+  <ion-item *ngFor="let item of items">
+    {{ item }}
   </ion-item>
 </ion-list>
 </ion-content>

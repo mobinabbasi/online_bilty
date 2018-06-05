@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, MenuController, PopoverController } from 'ionic-angular';
+import { ProfilepopoverPage } from '../profilepopover/profilepopover';
 
 @IonicPage()
 @Component({
@@ -14,12 +8,21 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
+  [x: string]: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public popoverCtrl: PopoverController) {
   }
 
   toggleMenu() {
     this.menuCtrl.toggle();
+  }
+
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create('ProfilepopoverPage');
+    popover.onDidDismiss( val => this.popovervalue = val);
+    popover.present({
+      ev: myEvent
+    });
   }
 
 }
