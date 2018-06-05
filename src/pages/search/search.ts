@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController,App} from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
+/**
+ * Generated class for the SearchPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
 @IonicPage()
 @Component({
@@ -9,9 +14,9 @@ import { HomePage } from '../home/home';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-  public info:any;
-  public Type: any;
 
+  //constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {}
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,
      public menuCtrl: MenuController,public app: App) {
     const data = JSON.parse(localStorage.getItem('Data'));
@@ -46,5 +51,4 @@ export class SearchPage {
     this.menuCtrl.toggle();
   }
   
-
 }

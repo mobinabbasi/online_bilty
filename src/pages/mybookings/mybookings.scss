@@ -37,14 +37,13 @@ page-mybookings {
     }
     .truck_wrap ion-label small{
         display: block;
-        margin-top: 5px;
+        margin-top:10px;
+        color:#999;
         font-weight: 500;
     }
-    .running{
-        color: #e76c1a;
-    }
-    .complete{
-        color: #77c412;
+    .date_c ion-icon{
+        font-size: 14px;
+        padding-right: 5px;
     }
     .truck_wrap ion-label p{
         margin:7px 0 !important;

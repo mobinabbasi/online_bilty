@@ -3,8 +3,8 @@
     <button ion-button menuToggle class="menu-btn"><ion-icon name="menu"></ion-icon></button>
     <ion-title>Profile</ion-title>
     <ion-buttons end>
-        <button ion-button class="settings-btn" navPush="ProfilepasswordPage"><ion-icon name="settings"></ion-icon></button>
-        <button ion-button class="edit-btn"><ion-icon name="create"></ion-icon></button>
+        <button ion-button class="settings-btn" navPush=""><ion-icon name="create"></ion-icon></button>
+        <button ion-button class="settings-btn" icon-only (click)="presentPopover($event)"><ion-icon name="more"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -40,8 +40,17 @@
         </ion-content>
     </ion-menu>  
     <ion-nav #menu [root]="ProfilePage"></ion-nav>
+
     <form  [formGroup]="Profile" (ngSubmit)="profile_info()" novalidate>
+<!--     <form  novalidate class="customerform"> -->
+            <ion-item>
+                <ion-input type="file"></ion-input>
+            </ion-item>
+<!--           <ion-item>
+ -->
+    
         <ion-item>
+
             <ion-label floating><ion-icon name="person"></ion-icon>Full Name</ion-label>
             <ion-input type="text" formControlName="person" ></ion-input>
           </ion-item>
@@ -65,6 +74,12 @@
             <ion-label floating><ion-icon name="address" ></ion-icon>Full Address</ion-label>
             <ion-textarea formControlName="address"></ion-textarea>
           </ion-item>
-          <button ion-button full class="Sign"  type="submit">Save</button>
+
+         
+<!--             <button ion-button full class="Sign" navPush="NotificationPage">Save</button>
+         
+
+          <button ion-button full class="Sign"  type="submit">Save</button> -->
+
     </form>
 </ion-content>
