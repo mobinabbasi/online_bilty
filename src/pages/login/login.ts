@@ -103,7 +103,9 @@ export class LoginPage {
 
 
   register() {
-    this.navCtrl.setRoot(RegisteredPage);
+    this.navCtrl.setRoot(RegisteredPage,{
+      type: this.user_type
+    });
   }
 
   forget_pass() {
