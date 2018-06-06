@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController,PopoverController } from 'ionic-angular';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { Http , Response} from '@angular/http';
-
+import { ProfilepopoverPage } from '../profilepopover/profilepopover';
 
 
 @IonicPage()
@@ -15,11 +15,12 @@ export class ProfilePage {
   public Id:any;
   public number:any;
   public info:any;
+  popovervalue: any;
 
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams, public formBulider: FormBuilder,
-     public menuCtrl: MenuController , public http:Http) {
+   public navParams: NavParams, public formBulider: FormBuilder,
+     public menuCtrl: MenuController , public http: Http, public popoverCtrl: PopoverController) {
        this.Profile = formBulider.group({
         person:['', Validators.compose([Validators.required,Validators.minLength(3)])],
         call_num:['', Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(10)])],
@@ -27,7 +28,7 @@ export class ProfilePage {
         city: ['', Validators.compose([Validators.required])],
         state: ['', Validators.compose([Validators.required])],
         address: ['',Validators.compose([Validators.required])]
-       }) 
+       })
 
       //  this.Id = navParams.get('id');
       //  this.number = navParams.get('number');
@@ -44,6 +45,19 @@ export class ProfilePage {
     //console.log(this.Profile.value);
   }
 
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create('ProfilepopoverPage');
+    popover.onDidDismiss( val => this.popovervalue = val);
+    popover.present({
+      ev: myEvent
+    });
+  }
+
+  password() {
+    this.navCtrl.push('ResetpasswordPage',{
+      info: this.info
+    })
+  }
   
 
   toggleMenu() {

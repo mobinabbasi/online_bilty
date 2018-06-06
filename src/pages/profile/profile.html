@@ -3,8 +3,8 @@
     <button ion-button menuToggle class="menu-btn"><ion-icon name="menu"></ion-icon></button>
     <ion-title>Profile</ion-title>
     <ion-buttons end>
-        <button ion-button class="settings-btn" navPush="ProfilepasswordPage"><ion-icon name="settings"></ion-icon></button>
-        <button ion-button class="edit-btn" ><ion-icon name="create"></ion-icon></button>
+            <button ion-button class="settings-btn" ><ion-icon name="create"></ion-icon></button>
+            <button ion-button class="settings-btn" icon-only (click)="presentPopover($event)"><ion-icon name="more"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -51,19 +51,19 @@
           </ion-item>
           <ion-item>
             <ion-label floating><ion-icon name="mail"></ion-icon>Email</ion-label>
-            <ion-input type="Email" formControlName="email" value=""></ion-input>
+            <ion-input type="Email" formControlName="email" value="{{this.info.user_email}}"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating><ion-icon name="pin"></ion-icon>City</ion-label>
-            <ion-input type="text" formControlName="city" value=""></ion-input>
+            <ion-input type="text" formControlName="city" value="{{this.info.citylocation}}"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating><ion-icon name="pin"></ion-icon>State</ion-label>
-            <ion-input type="text" formControlName="state" value=""></ion-input>
+            <ion-input type="text" formControlName="state" value="{{this.info.user_state}}"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating><ion-icon name="home" ></ion-icon>Full Address</ion-label>
-            <ion-textarea formControlName="address" value=""></ion-textarea>
+            <ion-textarea formControlName="address" value="{{this.info.user_address}}"></ion-textarea>
           </ion-item>
           <button ion-button full class="Sign"  type="submit" [disabled]="!Profile.valid">Save</button>
     </form>
