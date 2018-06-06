@@ -42,6 +42,14 @@ export class SearchPage {
     setTimeout(() => this.backToWL(),500);
   }
 
+  ProfilePage() {
+    this.navCtrl.push('ProfilePage', {
+      id: this.info.user_id,
+      number: this.info.user_phonenum,
+      info: this.info
+    })
+  }
+
   toggleMenu() {
     this.menuCtrl.toggle();
   }
