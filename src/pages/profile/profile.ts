@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, MenuController, PopoverController } from 'ionic-angular';
+import { ProfilepopoverPage } from '../profilepopover/profilepopover';
+
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { Http , Response} from '@angular/http';
@@ -11,6 +14,9 @@ import { Http , Response} from '@angular/http';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
+  [x: string]: any;
+
+  //constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public popoverCtrl: PopoverController) {
   private Profile: FormGroup;
   public Id:any;
   public number:any;

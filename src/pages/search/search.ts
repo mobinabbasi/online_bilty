@@ -12,6 +12,7 @@ export class SearchPage {
   public info:any;
   public Type: any;
 
+ //constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
   constructor(public navCtrl: NavController, public navParams: NavParams,
      public menuCtrl: MenuController,public app: App) {
     const data = JSON.parse(localStorage.getItem('Data'));
