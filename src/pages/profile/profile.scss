@@ -4,7 +4,7 @@ page-profile {
     .title-ios{padding:32px 20px 1px 30px !important;}
     .toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
     .scroll-content{
-        padding:16px 0 0 !important;
+        padding:16px 30px !important;
     }
     .settings-btn, .edit-btn{
         height: 20px !important;
@@ -73,25 +73,20 @@ ion-label{
         margin-bottom: 5px !important;
         color: #000 !important;
     }
-ion-item{padding: 0 25px !important;}
-    button{border-radius: 0 !important;
+ion-item{padding-left: 0 !important;}
+    button{border-radius: 4px !important;
         height:3em !important;
         font-size: 1.6rem !important;
         margin: 0.4rem 0.2rem;
         padding: 0 1em !important;
         text-transform: capitalize !important;
     }  
-    ion-footer:before{
-        display: none;
-    }
-    ion-buttons{
-        margin: 0;
-    }
 .Sign, .Sign.activated{
         color: #fff;
         background-color: #e76c1a;
         font-weight:500;
-        margin:25px auto 0;
+        width: 70%;
+        margin: 25px auto 0;
     }
     .choose-pro{
         background: red;

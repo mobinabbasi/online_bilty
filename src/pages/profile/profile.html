@@ -11,7 +11,7 @@
 
 
 <ion-content padding>
-    <ion-menu type="overlay" [content]="menu">
+    <!-- <ion-menu type="overlay" [content]="menu">
         <ion-content>
             <ion-item class="user-container">
                 <img src="/assets/imgs/user-img.png">
@@ -38,8 +38,9 @@
             </ion-list>
             </div>
         </ion-content>
-    </ion-menu>  
+    </ion-menu>   -->
     <ion-nav #menu [root]="ProfilePage"></ion-nav>
+<!-- <<<<<<< master
     <form  novalidate class="customerform">
             <ion-item class="choose-item">
                 <ion-input type="file" class="choose-pro"></ion-input>
@@ -71,5 +72,32 @@
          
             <button ion-button full class="Sign" navPush="NotificationPage">Save</button>
          
+======= -->
+    <form  [formGroup]="Profile" (ngSubmit)="profile_info()" novalidate>
+        <ion-item>
+            <ion-label floating><ion-icon name="person"></ion-icon>Full Name</ion-label>
+            <ion-input type="text" formControlName="person" value="{{this.info.user_name}}"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating><ion-icon name="call"></ion-icon>Phone Number</ion-label>
+            <ion-input type="text" formControlName="call_num" value="{{this.info.user_phonenum}}" readonly=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating><ion-icon name="mail"></ion-icon>Email</ion-label>
+            <ion-input type="Email" formControlName="email" value=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating><ion-icon name="pin"></ion-icon>City</ion-label>
+            <ion-input type="text" formControlName="city" value=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating><ion-icon name="pin"></ion-icon>State</ion-label>
+            <ion-input type="text" formControlName="state" value=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating><ion-icon name="home" ></ion-icon>Full Address</ion-label>
+            <ion-textarea formControlName="address" value=""></ion-textarea>
+          </ion-item>
+          <button ion-button full class="Sign"  type="submit" [disabled]="!Profile.valid">Save</button>
     </form>
 </ion-content>
