@@ -6,7 +6,7 @@
         <button ion-button class="settings-btn" navPush="FilterPage"><ion-icon name="more"></ion-icon></button>
     </ion-buttons>
 </ion-navbar>
-</ion-header>
+</ion-header> 
 
 
 <ion-content padding>
@@ -46,21 +46,23 @@
         </ion-content>
     </ion-menu>  
     <ion-nav #menu [root]="rootPage"></ion-nav>
+<form [formGroup]="Search" (ngSubmit)="search_upt()">
     <ion-item class="sh-item date">
         <ion-label><ion-icon name="calendar" class="sh-icon"></ion-icon></ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date"></ion-datetime>
     </ion-item>
     <ion-item class="sh-item material">
         <ion-label><ion-icon name="cube" class="sh-icon"></ion-icon></ion-label>
-        <ion-input type="text" placeholder="Material Type"></ion-input>
+        <ion-input type="text" placeholder="Material Type" formControlName="material"></ion-input>
+    </ion-item>
+    <ion-item class="sh-item location material" navPush="SearchLocationPage">
+        <ion-label><ion-icon name="pin" class="sh-icon" ></ion-icon></ion-label>
+        <ion-input placeholder="From" formControlName="from_location"></ion-input>
     </ion-item>
     <ion-item class="sh-item location material" navPush="SearchLocationPage">
         <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
-        <ion-input placeholder="From"></ion-input>
+        <ion-input placeholder="To" formControlName="to_location"></ion-input>
     </ion-item>
-    <ion-item class="sh-item location material" navPush="SearchLocationPage">
-        <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
-        <ion-input placeholder="To"></ion-input>
-    </ion-item>
-  <button ion-button full class="Sign" navPush="TrucktypePage">Search</button>
+  <button ion-button full class="Sign" type="Submit">Search</button>
+</form>
 </ion-content>

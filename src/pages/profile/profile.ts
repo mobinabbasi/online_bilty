@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController,PopoverController } from 'ionic-angular';
+//import { IonicPage, NavController, NavParams, MenuController,PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, PopoverController } from 'ionic-angular';
+//import { ProfilepopoverPage } from '../profilepopover/profilepopover';
+
+//import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { Http , Response} from '@angular/http';
 import { ProfilepopoverPage } from '../profilepopover/profilepopover';
@@ -11,6 +16,9 @@ import { ProfilepopoverPage } from '../profilepopover/profilepopover';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
+  [x: string]: any;
+
+  //constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController, public popoverCtrl: PopoverController) {
   private Profile: FormGroup;
   public Id:any;
   public number:any;
@@ -30,13 +38,13 @@ export class ProfilePage {
         address: ['',Validators.compose([Validators.required])]
        })
 
-      //  this.Id = navParams.get('id');
-      //  this.number = navParams.get('number');
+       this.Id = navParams.get('id');
+       this.number = navParams.get('number');
        this.info = navParams.get('info');
-       console.log(this.info);
+       console.log(this.info.user_id);
   }
   profile_info() {
-    let API = `http://mobitplus.com/onlinebilty/webservices/profileupdate?type=2&phonenumber=${this.Profile.value.call_num}&username=${this.Profile.value.person}&email_id=${this.Profile.value.email}&city=${this.Profile.value.city}&state=${this.Profile.value.state}&address=${this.Profile.value.address}&profile_pic=${'null'}&user_id=${this.info.Id}`;
+    let API = `http://mobitplus.com/onlinebilty/webservices/profileupdate?type=2&phonenumber=${this.Profile.value.call_num}&username=${this.Profile.value.person}&email_id=${this.Profile.value.email}&city=${this.Profile.value.city}&state=${this.Profile.value.state}&address=${this.Profile.value.address}&profile_pic=${'null'}&user_id=${this.info.user_id}`;
     console.log(API);
     this.http.get(API).subscribe((data:Response) => {
       let Data = data.json();

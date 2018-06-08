@@ -54,6 +54,7 @@ update_OTP: any;
     }
   }
 
+  
   reSend() {
     let API = `http://mobitplus.com/onlinebilty/webservices/sendotp?type=${this.user_type}&phonenumber=${this.num}`;
     

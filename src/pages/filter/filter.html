@@ -2,36 +2,85 @@
   <ion-navbar>
     <ion-title>Filters</ion-title>
     <ion-buttons end>
-        <button ion-button class="rest-btn">Reset</button>
+        <button ion-button class="rest-btn" (click)="reset()">Reset</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+    <form [formGroup]="truck" (ngSubmit)="filter()">
     <ion-label class="recent label label-md">Truck Type</ion-label>
-    <ion-item class="t-type" navPush="TrucktypePage">
-        Truck Type<i class="fa fa-angle-right" aria-hidden="true"></i>
-    </ion-item>
+    <ion-list>
+        <ion-item>
+          <ion-label>Truck Type</ion-label>
+          <ion-select formControlName="truck_type">
+                <ion-option value="1">Canter jumbo                  </ion-option>
+                <ion-option value="2">Canters 3MT / 4 Wheel         </ion-option>
+                <ion-option value="3">Canters 4.5MT / 4 wheel       </ion-option>
+                <ion-option value="4">Canters 4MT /  4 wheel        </ion-option>
+                <ion-option value="5">Canters 7.5MT / 6 wheel       </ion-option>
+                <ion-option value="6">Car Carrier (close body)      </ion-option>
+                <ion-option value="7">Car Carriers(Open Body)       </ion-option>
+                <ion-option value="8">Container Close Body  32 Feet </ion-option>
+                <ion-option value="9">Container close body 20 feet  </ion-option>
+                <ion-option value="10">Container Close Body 40 Feet  </ion-option>
+                <ion-option value="11">Container Trucks              </ion-option>
+                <ion-option value="12">Containers close body 24 feet </ion-option>
+                <ion-option value="13">Flat Bed Trailers (20 Feet)   </ion-option>
+                <ion-option value="14">Flat Bed Trailers (32 Feet)   </ion-option>
+                <ion-option value="15">Flat Bed Trailers (40 Feet)   </ion-option>
+                <ion-option value="16">Hydraulic Trailers            </ion-option>
+                <ion-option value="17">LCV (Light Commercial Vehicle)</ion-option>
+                <ion-option value="18">Low Bed Trailer               </ion-option>
+                <ion-option value="19">Multi Axle Trailer            </ion-option>
+                <ion-option value="20">Over Dimensional Cargo truck  </ion-option>
+                <ion-option value="21">Refrigerated / A C. Containers</ion-option>
+                <ion-option value="22">Scooter Body Trucks           </ion-option>
+                <ion-option value="23">Semi Low Bed Trailer          </ion-option>
+                <ion-option value="24">Tanker Truck (12 Wheel)       </ion-option>
+                <ion-option value="25">Tanker Truck (14 Wheel)       </ion-option>
+                <ion-option value="26">Tankers Trucks (10 wheel)     </ion-option>
+                <ion-option value="27">Tankers Trucks (6 wheel)      </ion-option>
+                <ion-option value="28">Tata 407 2.5 MT / 4 wheel     </ion-option>
+                <ion-option value="29">Tipper Dumper                 </ion-option>
+                <ion-option value="30">Trailer 28MT / 18 wheel       </ion-option>
+                <ion-option value="31">Trailer 4923                  </ion-option>
+                <ion-option value="32">Truck 15MT / 10 wheel         </ion-option>
+                <ion-option value="33">Truck 16MT / 10 wheel         </ion-option>
+                <ion-option value="34">Truck 20MT / 12 wheel         </ion-option>
+                <ion-option value="35">Truck 21MT / 12 wheel         </ion-option>
+                <ion-option value="36">Truck 24/25MT   / 14 wheel    </ion-option>
+                <ion-option value="37">Truck 9MT / 6 wheel           </ion-option>
+                <ion-option value="38">Vehicle/Car Carrier           </ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
     <ion-label class="recent label label-md">Price Range</ion-label>
     <ion-item class="price">
-        <ion-input type="text" placeholder="From"></ion-input>
+        <ion-select type="text" formControlName="price" >
+            <ion-option *ngFor="let user of userlist" >{{user}}</ion-option>
+        </ion-select>
         <ion-label>Rs</ion-label>
     </ion-item>
-    <ion-item class="price">
+    <!-- <ion-item class="price">
         <ion-input type="text" placeholder="To"></ion-input>
         <ion-label>Rs</ion-label>
-    </ion-item>
+    </ion-item> -->
     <ion-label class="recent label label-md">Weight Range</ion-label>
     <ion-item class="price">
-        <ion-input type="text" placeholder="From"></ion-input>
+        <ion-select type="text" formControlName="weigth">
+        <ion-option *ngFor="let item of items">{{item}}</ion-option>
+        </ion-select>
     </ion-item>
-    <ion-item class="price">
+    <!-- <ion-item class="price">
         <ion-input type="text" placeholder="To"></ion-input>
-    </ion-item>
+    </ion-item> -->
+    <button ion-button clear full class="select-btn" type="submit" [disabled]="!truck.valid">Apply</button>
+    </form>
 </ion-content>
 <ion-footer>
   <ion-buttons>
-    <button ion-button clear full class="select-btn">Apply</button>
+   
   </ion-buttons>
 </ion-footer>

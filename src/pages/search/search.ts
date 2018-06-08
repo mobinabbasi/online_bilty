@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController,App} from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 
 
 @IonicPage()
@@ -11,9 +12,12 @@ import { HomePage } from '../home/home';
 export class SearchPage {
   public info:any;
   public Type: any;
+  private Search:FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+ //constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public formBulider:FormBuilder,
      public menuCtrl: MenuController,public app: App) {
+
     const data = JSON.parse(localStorage.getItem('Data'));
     this.info = data;
     console.log(this.info);
@@ -23,6 +27,13 @@ export class SearchPage {
     } else {
       this.Type = "Transporater";
     }
+
+    this.Search = formBulider.group({
+      date:['',Validators.compose([Validators.required])],
+      material:['',Validators.compose([Validators.required])],
+      from_location:['',Validators.compose([Validators.required])],
+      to_location:['',Validators.compose([Validators.required])],
+    })
 
   }
 
@@ -52,6 +63,10 @@ export class SearchPage {
 
   toggleMenu() {
     this.menuCtrl.toggle();
+  }
+
+  search_upt() {
+    console.log(this.Search.value);
   }
   
 

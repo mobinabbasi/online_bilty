@@ -65,11 +65,11 @@ export class RegisteredPage {
     
     }
 
-    getData() {
-      this.service.getUsers().then(data => { 
-        console.log(data);
-      });
-    }
+    // getData() {
+    //   this.service.getUsers().then(data => { 
+    //     console.log(data);
+    //   });
+    // }
 
     login_set() {
       //let type;
