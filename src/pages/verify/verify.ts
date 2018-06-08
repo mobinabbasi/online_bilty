@@ -26,15 +26,25 @@ update_OTP: any;
 ) {
     this.num =  navParams.get('Number');
     this.user_type =  navParams.get('type');
-    this.main_OTP =  navParams.get('OTP');
-    console.log( this.main_OTP );
+    //this.main_OTP =  navParams.get('OTP');
+   // console.log( this.main_OTP );
 
     this.OTP =  formBuilder.group({
       otp_verfy: ['', Validators.compose([Validators.required,Validators.minLength(5),Validators.maxLength(5)])]
     })
 
+    this.sendOTP();
   }
    
+  sendOTP() {
+    let OTPapi = `http://mobitplus.com/onlinebilty/webservices/sendotp?type=${this.user_type}&phonenumber=${this.num}`; 
+    this.http.get(OTPapi).do(res => res.json()).map(data => data.json())
+    .subscribe(result => {
+     console.log('send',result);
+      this.main_OTP = result.user_otp;
+      console.log(this.main_OTP);
+     })
+  }
 
   verify_otp() {
     

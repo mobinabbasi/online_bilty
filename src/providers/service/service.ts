@@ -60,8 +60,6 @@ export class ServiceProvider {
    addCust(Phonenum, type) {
     let api = `http://mobitplus.com/onlinebilty/webservices/registration_new?type=${type}&phonenumber=${Phonenum.user_phonenum}&password=`;
     //console.log(OTPapi);
-    let OTPapi = `http://mobitplus.com/onlinebilty/webservices/sendotp?type=${type}&phonenumber=${Phonenum.user_phonenum}`; 
-
     
     return Observable.from(new Promise((resolve, reject) => {
            let headerOptions: any = { 'Content-Type': 'application/json' };
@@ -87,7 +85,7 @@ export class ServiceProvider {
               });
               alert.present();
             }
-            console.log(data);
+            console.log('register:',data);
             //console.log(data.status);
             resolve(res);
           }, (err) => {
@@ -95,13 +93,19 @@ export class ServiceProvider {
           });
         }))
 
-        this.http.get(OTPapi).do(res => res.json()).map(data => data.json())
-        .subscribe(result => {
-         console.log(result);
-         })
+        
+
+        
       }
 
-      
+      // sendOTP(Phonenum,type){
+      //   let OTPapi = `http://mobitplus.com/onlinebilty/webservices/sendotp?type=${type}&phonenumber=${Phonenum.user_phonenum}`; 
+      //   this.http.get(OTPapi).do(res => res.json()).map(data => data.json())
+      //   .subscribe(result => {
+      //    console.log('send',result);
+
+      //    })
+      // }
 
       private extraData(res:Response){
         let body = res

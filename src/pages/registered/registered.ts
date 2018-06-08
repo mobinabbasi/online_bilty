@@ -25,7 +25,7 @@ export class RegisteredPage {
 
   
   constructor(public navCtrl: NavController, public service: ServiceProvider,
-    public formBuilder: FormBuilder, public loadingCtrl: LoadingController,
+    public formBuilder: FormBuilder, public loadingCtrl: LoadingController,public http:Http,
     public navParams: NavParams,
     public alertCtrl: AlertController) {
       this.type = navParams.get('type');
@@ -37,17 +37,7 @@ export class RegisteredPage {
   }
 
   
-  NewCust() {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-    //let type;
-    //this.ty = this.navParams.get('type');
-   // console.log(this.ty);
-        // if(this.ty === 2) {
-        // this.type = this.ty;
-           
-        // } else {
-        //   this.type = 1;
-        // } 
-        
+  NewCust() {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     this.service.addCust(this.Cust.value,this.type).subscribe((res: Response) => {
      // this.list = res;
       this.list = res.json();
@@ -59,11 +49,14 @@ export class RegisteredPage {
           type: this.type,
           OTP: this.list.user_otp
         });
+        //this.sendOTP();
       }
       //console.log(this.list.status);
      })
     
     }
+
+    
 
     // getData() {
     //   this.service.getUsers().then(data => { 
