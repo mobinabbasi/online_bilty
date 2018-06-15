@@ -5,7 +5,7 @@ page-search-location {
     .toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
     .scroll-content{
         padding:16px 30px !important;
-        overflow-y: hidden;
+        overflow-x: hidden;
     }
     .sh-item {
         padding-left: 0;
@@ -17,7 +17,7 @@ page-search-location {
     }  
     .location{margin-bottom:15px;margin-top: 10px;}
     ion-label{
-            color: #bababa !important;
+            color: #333 !important;
             font-size: 14px;
             padding-left: 15px;
         }
@@ -28,10 +28,14 @@ page-search-location {
         padding: 0;
         margin-top: 10px;
     }
-    .searchbar input{padding-left:15px !important;}
-    .searchbar-search-icon{display:none;}
+    .city-itm{padding-left: 10px !important;border-bottom: 1px solid #c8c7cc;}
+    .city-itm ion-label{padding-left: 0 !important;}
+    .city-itm ion-label ion-icon{padding-right:5px;}
+    .searchbar input{padding-left:30px !important;}
+    .searchbar-md .searchbar-search-icon {
+        left: 6px;}
     .item-ios{
-        border:none !important;
+        border-top:none !important;
     }        
     ion-list{
         margin: 5px 0 !important;

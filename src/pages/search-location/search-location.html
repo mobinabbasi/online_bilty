@@ -6,10 +6,10 @@
 
 
 <ion-content padding>  
-<ion-searchbar (ionInput)="getItems($event)" placeholder="Enter Location (City/State)"></ion-searchbar>
+<ion-searchbar (ionInput)="getItems($event)" [(ngModel)]="myInput" (ionCancel)="onCancel($event)" placeholder="Enter Location" autocomplete=""></ion-searchbar>
 <ion-list>
-  <ion-item *ngFor="let city of cities">
-    <p>{{city}}</p>
+  <ion-item *ngFor="let city of cities" class="city-itm">
+    {{city}}
   </ion-item>
 </ion-list>
 </ion-content>

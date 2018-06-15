@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup,Validators} from '@angular/forms';
 import { Http } from '@angular/http';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @IonicPage()
 @Component({
@@ -30,7 +31,12 @@ export class FilterPage {
   }
 
   filter(){
-   
+    let API = `http://mobitplus.com/onlinebilty/webservices/filter_api?truck_type=${this.truck.value.truck_type}&fromcity=indore&truck_raterange=${this.truck.value.price}&truck_capacityrange=${this.truck.value.weigth}`;
+   console.log(API);
+    this.http.get(API).do(res => res.json()).map(data => data.json())
+   .subscribe(result => {
+     console.log(result);
+   })
     console.log(this.truck.value);
   }
 
@@ -63,6 +69,8 @@ export class FilterPage {
  }
 
  reset() {
-  this.navCtrl.setRoot(this.navCtrl.getActive().component);
+   //this.navCtrl.setRoot(this.navCtrl.getActive().component);
+  //window.location.reload();
+  this.truck.reset();
  }
 }

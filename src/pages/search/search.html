@@ -55,10 +55,23 @@
         <ion-label><ion-icon name="cube" class="sh-icon"></ion-icon></ion-label>
         <ion-input type="text" placeholder="Material Type" formControlName="material"></ion-input>
     </ion-item>
+
+        <!-- <select-searchable
+            [(ngModel)]="port"
+            itemTextField="name"
+            [items]="ports"
+            [canSearch]="true"
+            (onSearch)="searchPorts($event)">
+            <ng-template selectSearchableLabelTemplate>
+            From
+            </ng-template>
+        </select-searchable> -->
+    
     <ion-item class="sh-item location material" navPush="SearchLocationPage">
         <ion-label><ion-icon name="pin" class="sh-icon" ></ion-icon></ion-label>
         <ion-input placeholder="From" formControlName="from_location"></ion-input>
     </ion-item>
+
     <ion-item class="sh-item location material" navPush="SearchLocationPage">
         <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
         <ion-input placeholder="To" formControlName="to_location"></ion-input>
