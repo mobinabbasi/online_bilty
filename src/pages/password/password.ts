@@ -26,7 +26,7 @@ private set_password: FormGroup;
   }
 
   set_pass() {
-    let setAPI = `http://mobitplus.com/onlinebilty/webservices/set_password?type=${this.type}&phonenumber=${this.number}&user_password=${this.set_password.value.confirm_pass}`;
+    let setAPI = `http://www.onlinebilty.com/webservices/set_password?type=${this.type}&phonenumber=${this.number}&user_password=${this.set_password.value.confirm_pass}`;
     if(this.set_password.value.confirm_pass === this.set_password.value.pass) {
       return this.http.get(setAPI).subscribe((res) => {
         let set = res.json();

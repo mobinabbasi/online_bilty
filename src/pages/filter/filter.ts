@@ -31,7 +31,7 @@ export class FilterPage {
   }
 
   filter(){
-    let API = `http://mobitplus.com/onlinebilty/webservices/filter_api?truck_type=${this.truck.value.truck_type}&fromcity=indore&truck_raterange=${this.truck.value.price}&truck_capacityrange=${this.truck.value.weigth}`;
+    let API = `http://www.onlinebilty.com/webservices/filter_api?truck_type=${this.truck.value.truck_type}&fromcity=indore&truck_raterange=${this.truck.value.price}&truck_capacityrange=${this.truck.value.weigth}`;
    console.log(API);
     this.http.get(API).do(res => res.json()).map(data => data.json())
    .subscribe(result => {
@@ -41,7 +41,7 @@ export class FilterPage {
   }
 
  price(){
-  let API="http://mobitplus.com/onlinebilty/webservices/truck_raterange";
+  let API="http://www.onlinebilty.com/webservices/truck_raterange";
 
   this.http.get(API).do(res => res.json()).map(data => data.json())
   .subscribe(result => {
@@ -55,7 +55,7 @@ export class FilterPage {
  }
 
  weight(){
-  let API="http://mobitplus.com/onlinebilty/webservices/truck_weightrange";
+  let API="http://www.onlinebilty.com/webservices/truck_weightrange";
 
   this.http.get(API).do(res => res.json()).map(data => data.json())
   .subscribe(result => {

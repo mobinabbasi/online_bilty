@@ -55,7 +55,7 @@ export class PortProvider {
 
 
   GetCity() {
-    let API = 'http://mobitplus.com/onlinebilty/webservices/cities';
+    let API = 'http://www.onlinebilty.com/webservices/cities';
     this.http.get(API).do(res => res.json()).map(data => data.json())
     .subscribe(result => {
       this.item = result;

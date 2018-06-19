@@ -4,12 +4,16 @@ import { HomePage } from '../home/home';
 import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { SelectSearchableComponent } from 'ionic-select-searchable';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { delay } from 'rxjs/operators';
-import {Port} from '../../types/port';
-//import { PortProvider } from '../../providers/port/port';
+import {ServiceProvider} from '../../providers/service/service';
 
-@IonicPage()
+
+class Port {
+  //public city_id: number;
+  public city_name: string;
+  
+}
+
+//@IonicPage()
 @Component({
   selector: 'page-search',
   templateUrl: 'search.html',
@@ -20,21 +24,22 @@ export class SearchPage {
   private Search:FormGroup;
   cities = [];
   item: any;
-  //port:string;
-
-  ports: Port[];
-  port: Port;
+  public data = {
+    
+  }
+  
 
  //constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
   constructor(public navCtrl: NavController, public navParams: NavParams,public formBulider:FormBuilder,
-     public menuCtrl: MenuController,public app: App,public http:Http) {
+     public menuCtrl: MenuController,public app: App,
+     public http:Http,public service: ServiceProvider) {
 
     const data = JSON.parse(localStorage.getItem('Data'));
     // let city = navParams.get('value');
     // console.log(city);
     this.info = data;
     console.log(this.info);
-    //this.GetCity();
+    this.GetCity();
     
     
 
@@ -83,26 +88,25 @@ export class SearchPage {
   }
 
   search_upt() {
-    console.log(this.Search.value);
+    this.service.search(this.Search.value,this.info.user_id);
+    
   }
   
-  portChange(event: { component: SelectSearchableComponent, value: any }) {
-    console.log('item:', event.value);
+
+  GetCity() {
+    let API = 'http://onlinebilty.com/webservices/cities';
+    this.http.get(API).do(res => res.json()).map(data => data.json())
+    .subscribe(result => {
+      this.item = result;
+      this.cities = this.item.userlist;
+      //this.userlist = Array.of(this.userlist);
+      // for (var i of this.item.userlist) {
+      //   this.cities.push(i.city_name);
+      //  // this.cities.push(i.city_id);
+      // }
+      console.log(this.cities);
+    });
   }
 
-  // GetCity() {
-  //   let API = 'http://mobitplus.com/onlinebilty/webservices/cities';
-  //   this.http.get(API).do(res => res.json()).map(data => data.json())
-  //   .subscribe(result => {
-  //     this.item = result;
-  //     //this.userlist = Array.of(this.userlist);
-  //     for (var i of this.item.userlist) {
-  //       this.cities.push(i.city_name);
-  //     }
-  //     console.log(this.cities);
-  //   });
-  // }
-
-  
 
 }

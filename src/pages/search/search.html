@@ -49,33 +49,49 @@
 <form [formGroup]="Search" (ngSubmit)="search_upt()">
     <ion-item class="sh-item date">
         <ion-label><ion-icon name="calendar" class="sh-icon"></ion-icon></ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="date"></ion-datetime>
+        <ion-datetime displayFormat="DD/MM/YYYY"  pickerFormat="DD/MM/YYYY" formControlName="date"></ion-datetime>
     </ion-item>
     <ion-item class="sh-item material">
         <ion-label><ion-icon name="cube" class="sh-icon"></ion-icon></ion-label>
         <ion-input type="text" placeholder="Material Type" formControlName="material"></ion-input>
     </ion-item>
 
-        <!-- <select-searchable
-            [(ngModel)]="port"
-            itemTextField="name"
-            [items]="ports"
-            [canSearch]="true"
-            (onSearch)="searchPorts($event)">
-            <ng-template selectSearchableLabelTemplate>
-            From
-            </ng-template>
-        </select-searchable> -->
+    <!-- <ion-item>
+        <select-searchable>
+                <ng-template selectSearchableItemTemplate let-city="cities">
+                        {{city.city_name}}
+                    </ng-template>
+        </select-searchable>
+    </ion-item> -->
+    <ion-item>
+            <select-searchable formControlName="from_location"
+                itemTextField="city_name"
+                [items]="cities"
+                [canSearch]="true">
+            </select-searchable>
+        </ion-item>
     
-    <ion-item class="sh-item location material" navPush="SearchLocationPage">
-        <ion-label><ion-icon name="pin" class="sh-icon" ></ion-icon></ion-label>
-        <ion-input placeholder="From" formControlName="from_location"></ion-input>
+    <!-- <ion-item class="sh-item location material" >
+        <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+        <ion-input placeholder="From" formControlName="from_location" (ionInput)="getItems($event)"></ion-input>
+        <ion-list *ngFor="let city of cities" class="city-itm">
+              {{city}}
+          </ion-list>
+    </ion-item> -->
+
+    <ion-item>
+        <select-searchable formControlName="to_location"
+            itemTextField="city_name"
+            [items]="cities"
+            [canSearch]="true">
+        </select-searchable>
     </ion-item>
 
+<!-- 
     <ion-item class="sh-item location material" navPush="SearchLocationPage">
         <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
         <ion-input placeholder="To" formControlName="to_location"></ion-input>
-    </ion-item>
-  <button ion-button full class="Sign" type="Submit">Search</button>
+    </ion-item> -->
+  <button ion-button full class="Sign" type="Submit" [disabled]="!Search.valid">Search</button>
 </form>
 </ion-content>

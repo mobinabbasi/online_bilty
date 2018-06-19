@@ -16,13 +16,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { ServiceProvider } from '../providers/service/service';
 import {Facebook} from '@ionic-native/facebook';
 import { RegisteredPage } from '../pages/registered/registered';
+import { SearchPage } from '../pages/search/search';
 import {Network} from '@ionic-native/network';
 import { NetworkProvider } from '../providers/network/network';
 import {SearchPipe} from '../pipes/search/search';
 import {SortPipe} from '../pipes/sort/sort';
 import { SelectSearchableModule } from 'ionic-select-searchable';
 import { PortProvider } from '../providers/port/port';
-
+import{SearchEmptyPage} from '../pages/search-empty/search-empty';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { PortProvider } from '../providers/port/port';
     HomePage,
     RegisteredPage,
     SearchPipe,
-    SortPipe
+    SortPipe,
+    SearchPage,SearchEmptyPage
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { PortProvider } from '../providers/port/port';
     MyApp,
     HomePage,
     RegisteredPage,
+    SearchPage,SearchEmptyPage
     ],
   providers: [
     StatusBar,
@@ -58,7 +62,7 @@ import { PortProvider } from '../providers/port/port';
     Facebook,
     Network,
     NetworkProvider,
-    PortProvider,
+    PortProvider,DatePipe
     
     
   ]

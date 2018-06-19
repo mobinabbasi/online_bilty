@@ -66,10 +66,11 @@ update_OTP: any;
 
   
   reSend() {
-    let API = `http://mobitplus.com/onlinebilty/webservices/sendotp?type=${this.user_type}&phonenumber=${this.num}`;
+    let API = `http://www.onlinebilty.com/webservices/sendotp?type=${this.user_type}&phonenumber=${this.num}`;
     
     this.http.get(API).subscribe((res) => {
       let new_otp = res.json();
+      this.main_OTP = new_otp.user_otp;
      // let New = new_otp.user_otp;
     // this.update_OTP = new_otp.user_otp
       console.log(new_otp);

@@ -8,14 +8,15 @@ import { NetworkProvider } from '../providers/network/network';
 import { Platform,  Events ,AlertController} from 'ionic-angular';
 import { Network } from '@ionic-native/network';
 import { initializeApp } from 'firebase/app';
-
+import { DatePipe } from '@angular/common';
 
 
 
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [DatePipe]
 })
 export class MyApp {
   rootPage = HomePage;
