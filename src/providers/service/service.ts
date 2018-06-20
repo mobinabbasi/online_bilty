@@ -23,6 +23,7 @@ import { map, catchError } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DatePipe } from '@angular/common';
 
+
 @Injectable()
 export class ServiceProvider {
   user: firebase.User;
@@ -102,12 +103,23 @@ export class ServiceProvider {
 
     search(data,userID) {
       console.log(data);
-       let Date = this.datepipe.transform(data.date, 'dd-MM-yyyy');
-       //console.log(Date);
+       let Date = this.datepipe.transform(data.date, 'dd/MM/yyyy');
+       console.log(Date);
+       return Observable.from(new Promise((resolve, reject) => {
+        let headerOptions: any = { 'Content-Type': 'application/json' };
+        let headers = new Headers(headerOptions)
+       const options = new RequestOptions({headers: headers});
+
       let API = this.BaseAPI + `/search_data?user_id=${userID}&fromcity=${data.from_location.city_name}&tocity=${data.to_location.city_name}&book_date=${Date}&material_type=${data.material}`;
+      console.log(API);
       this.http.get(API).map(res => res.json()).subscribe(data => {
+       
+        resolve(data);
         console.log(data);
-      })
+      },(err) => {
+        reject(err);
+      });
+    }))
     }
  
 

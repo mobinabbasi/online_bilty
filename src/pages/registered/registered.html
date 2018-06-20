@@ -4,7 +4,7 @@
     <h5 class="ab-logo">Signup to join</h5>
     <form   [formGroup]="Cust" (ngSubmit)="NewCust()" >
         <ion-item>
-            <ion-label floating><ion-icon ></ion-icon>Phone Number</ion-label>
+            <ion-label floating><ion-icon name="call"></ion-icon>Phone Number</ion-label>
             <ion-input type="number" formControlName="user_phonenum"
             [class.invalid]="!Cust.controls.user_phonenum.valid && Cust.controls.user_phonenum.dirty"></ion-input>
           </ion-item>

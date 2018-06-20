@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {SearchPage} from '../search/search';
 
 @IonicPage()
 @Component({
@@ -31,7 +32,7 @@ private set_password: FormGroup;
       return this.http.get(setAPI).subscribe((res) => {
         let set = res.json();
         localStorage.setItem('Data',JSON.stringify(set));
-        this.navCtrl.setRoot('SearchPage');
+        this.navCtrl.setRoot(SearchPage);
         console.log(set);
       })
     }

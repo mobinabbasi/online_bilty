@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import {ServiceProvider} from '../../providers/service/service';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Http } from '@angular/http';
@@ -21,7 +21,7 @@ update_OTP: any;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams
+  constructor(public navCtrl: NavController, public navParams: NavParams,public tosts:ToastController
   ,public formBuilder: FormBuilder,public service: ServiceProvider,public http:Http,public alert: AlertController
 ) {
     this.num =  navParams.get('Number');
@@ -75,6 +75,13 @@ update_OTP: any;
     // this.update_OTP = new_otp.user_otp
       console.log(new_otp);
     })
+    let tosts =  this.tosts.create({
+      message: 'Resend OTP',
+      duration: 2000,
+     // position: position
+    });
+    tosts.present(tosts);
+    //tosts.present();
   }
 
 }

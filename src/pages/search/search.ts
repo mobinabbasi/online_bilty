@@ -3,9 +3,9 @@ import { IonicPage, NavController, NavParams, MenuController,App} from 'ionic-an
 import { HomePage } from '../home/home';
 import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { SelectSearchableComponent } from 'ionic-select-searchable';
-import { Http } from '@angular/http';
+import { Http,Response} from '@angular/http';
 import {ServiceProvider} from '../../providers/service/service';
-
+import {SearchEmptyPage} from '../search-empty/search-empty';
 
 class Port {
   //public city_id: number;
@@ -24,9 +24,7 @@ export class SearchPage {
   private Search:FormGroup;
   cities = [];
   item: any;
-  public data = {
-    
-  }
+ public Data: any;
   
 
  //constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
@@ -88,8 +86,25 @@ export class SearchPage {
   }
 
   search_upt() {
-    this.service.search(this.Search.value,this.info.user_id);
-    
+    this.service.search(this.Search.value,this.info.user_id)
+    .subscribe((data:Response) => {
+      this.Data = data;
+
+       if(this.Data.status === "Failed") {
+        this.navCtrl.push(SearchEmptyPage,{
+          from: this.Search.value.from_location.city_name,
+          to: this.Search.value.to_location.city_name,
+        });
+       } else {
+
+        this.navCtrl.push('SearchresultPage',{
+          trns_list: this.Data,
+          from: this.Search.value.from_location.city_name,
+          to: this.Search.value.to_location.city_name,
+        });
+       }
+      console.log(data);
+    })
   }
   
 
