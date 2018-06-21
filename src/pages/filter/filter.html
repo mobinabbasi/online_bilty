@@ -13,7 +13,7 @@
     <ion-label class="recent label label-md">Truck Type</ion-label>
     <ion-list>
         <ion-item>
-          <ion-label>Truck Type</ion-label>
+          <ion-label>Plese Select</ion-label>
           <ion-select formControlName="truck_type">
                 <ion-option value="1">Canter jumbo                  </ion-option>
                 <ion-option value="2">Canters 3MT / 4 Wheel         </ion-option>
@@ -57,30 +57,35 @@
         </ion-item>
       </ion-list>
     <ion-label class="recent label label-md">Price Range</ion-label>
+    <ion-list>
     <ion-item class="price">
+        <ion-label>Plese Select</ion-label>
         <ion-select type="text" formControlName="price" >
             <ion-option *ngFor="let user of userlist" >{{user}}</ion-option>
         </ion-select>
-        <ion-label>Rs</ion-label>
+        <ion-label class="rs-label">Rs</ion-label>
     </ion-item>
+    </ion-list>
     <!-- <ion-item class="price">
         <ion-input type="text" placeholder="To"></ion-input>
         <ion-label>Rs</ion-label>
     </ion-item> -->
     <ion-label class="recent label label-md">Weight Range</ion-label>
+    <ion-list>    
     <ion-item class="price">
+        <ion-label>Plese Select</ion-label>
         <ion-select type="text" formControlName="weigth">
         <ion-option *ngFor="let item of items">{{item}}</ion-option>
         </ion-select>
     </ion-item>
+    </ion-list>
     <!-- <ion-item class="price">
         <ion-input type="text" placeholder="To"></ion-input>
     </ion-item> -->
-    <button ion-button clear full class="select-btn" type="submit" [disabled]="!truck.valid">Apply</button>
+    <ion-footer>
+            <ion-buttons>
+                    <button ion-button clear full class="select-btn" type="submit" [disabled]="!truck.valid">Apply</button>
+            </ion-buttons>
+          </ion-footer>
     </form>
 </ion-content>
-<ion-footer>
-  <ion-buttons>
-   
-  </ion-buttons>
-</ion-footer>

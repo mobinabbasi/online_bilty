@@ -14,3 +14,21 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+ion-menu[type=overlay] {
+    z-index: 9999;
+}
+.alert-head{padding: 10px 24px 10px !important;}
+.alert-sub-title {
+    margin: 10px 0 0;
+}
+.alert-button{
+    color: #e76c1a !important;
+    font-size: 18px;
+    font-weight: 400 !important;
+}
+.alert-title {
+    font-size: 20px !important;
+}
+.alert-wrapper{
+    min-width: 315px;
+}

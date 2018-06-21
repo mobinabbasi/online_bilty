@@ -39,9 +39,28 @@ export class LoginPage {
       number: ['', Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(10)])],
       password : ['', Validators.compose([Validators.required,Validators.minLength(6),Validators.maxLength(20)])]
     })
-    
 
   }
+
+  public  type  =  'password';
+
+  public  showPass  =  false;
+
+  showPassword() {
+
+  this.showPass  =  !this.showPass;
+
+  if(this.showPass){
+
+  this.type  =  'text';
+
+ } else {
+
+  this.type  =  'password';
+
+ }
+
+ }
 
   _login() {
     let API = `http://www.onlinebilty.com/webservices/login?type=${this.user_type}&phonenumber=${this.Login.value.number}`;

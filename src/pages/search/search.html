@@ -63,14 +63,17 @@
                     </ng-template>
         </select-searchable>
     </ion-item> -->
-    <ion-item>
-            <select-searchable formControlName="from_location"
-                itemTextField="city_name"
-                [items]="cities"
-                [canSearch]="true">
-            </select-searchable>
-        </ion-item>
-    
+    <div class="location-wrap sh-item">
+        <ion-label class="location-lab"><ion-icon name="pin" class=""></ion-icon>From Location</ion-label>
+        <ion-item>
+                <select-searchable formControlName="from_location"
+                    itemTextField="city_name"
+                    [items]="cities"
+                    searchPlaceholder="From Location"
+                    [canSearch]="true">
+                </select-searchable>
+            </ion-item>
+    </div>
     <!-- <ion-item class="sh-item location material" >
         <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
         <ion-input placeholder="From" formControlName="from_location" (ionInput)="getItems($event)"></ion-input>
@@ -79,13 +82,17 @@
           </ion-list>
     </ion-item> -->
 
-    <ion-item>
-        <select-searchable formControlName="to_location"
-            itemTextField="city_name"
-            [items]="cities"
-            [canSearch]="true">
-        </select-searchable>
-    </ion-item>
+    <div class="location-wrap sh-item">
+        <ion-label class="location-lab"><ion-icon name="pin" class=""></ion-icon>To Location</ion-label>
+        <ion-item>
+            <select-searchable formControlName="to_location"
+                itemTextField="city_name"
+                [items]="cities"
+                searchPlaceholder="To Location"
+                [canSearch]="true">
+            </select-searchable>
+        </ion-item>
+    </div>    
 
 <!-- 
     <ion-item class="sh-item location material" navPush="SearchLocationPage">

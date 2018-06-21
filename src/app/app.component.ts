@@ -1,16 +1,29 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild } from '@angular/core';
 //import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 
+
 import { NetworkProvider } from '../providers/network/network';
-import { Platform,  Events ,AlertController} from 'ionic-angular';
+import { Platform,  Events ,AlertController,Nav} from 'ionic-angular';
 import { Network } from '@ionic-native/network';
 import { initializeApp } from 'firebase/app';
 import { DatePipe } from '@angular/common';
 
+//import { HomePage } from  '../pages/home/home';
 
+// import { SearchPage } from  '../pages/search/search';
+
+// import { MybookingsPage } from  '../pages/mybookings/mybookings';
+
+// import { ProfilePage } from  '../pages/profile/profile';
+
+// import { NotificationPage } from  '../pages/notification/notification';
+
+//import { NotificationemptyPage } from  '../pages/n';
+
+//import { MybookingemptyPage } from  '../pages/mybookingempty/mybookingempty';
 
 
 

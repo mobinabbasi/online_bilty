@@ -1,8 +1,11 @@
 page-searchresult {
     .toolbar-background{background:#0c6f9b;}
-    .header button{color: #fff;}
+    .header button{color: #fff;margin: 0;}
     .title-ios{padding-top:20px !important;}
     .toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
+    .header ion-icon { padding: 0 5px;}
+    .settings-btn{padding-right: 15px;}
+    .settings-btn .fa{font-size:2rem;}
     .scroll-content{
         padding:0 0 16px!important;
     }
@@ -32,7 +35,7 @@ page-searchresult {
         position: absolute;
         left: 15px;
         z-index: 999;
-        top:10px;
+        top:5px;
     }
     .checkbox-checked {
         border-color: #e76c1a !important;

@@ -10,6 +10,7 @@ page-filter {
     .bar-button-ios {
         padding: 0 15px;
     }
+    ion-list{margin-bottom: 0 !important;}
     .scroll-content {
         padding: 0 0 !important;
     }
@@ -19,20 +20,22 @@ page-filter {
         margin: 0;
         font-weight: 400;
     }
+    ion-select{padding-left: 0 !important;}
     .t-type{padding: 15px 0 15px 16px;}
     .t-type ion-label{padding-left: 0;font-size: 16px;color: #999 !important;}
     .t-type ion-label .fa{float: right;font-size:24px;}
-    .t-type  .item-inner {
+    .item-inner {
        border:none !important;
     }  
     .price{
-        padding: 15px 16px 15px 16px;
+        padding:0 16px;
     }
-    .price ion-label{
+    .price .rs-label{
         position: absolute;
-        right:15px;
-        top: 20px;
+        right:0;
+        top:0;
     }
+    .select-text{font-size:14px;}
     .price input{
         margin-left: 0 !important;
         color: #666;
@@ -43,7 +46,7 @@ page-filter {
     ion-label{
             color: #333 !important;
             font-size: 14px;
-            padding-left: 15px;
+            padding-left: 0;
         }
     ion-footer:before{
         display: none;
