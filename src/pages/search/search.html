@@ -99,6 +99,10 @@
         <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
         <ion-input placeholder="To" formControlName="to_location"></ion-input>
     </ion-item> -->
-  <button ion-button full class="Sign" type="Submit" [disabled]="!Search.valid">Search</button>
+  <ion-footer>
+        <ion-buttons>
+                <button ion-button full class="Sign" type="Submit" [disabled]="!Search.valid">Search</button>   
+        </ion-buttons>
+      </ion-footer>
 </form>
 </ion-content>

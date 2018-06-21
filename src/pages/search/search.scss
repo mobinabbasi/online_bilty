@@ -84,7 +84,7 @@ page-search {
         z-index: 999;
         padding-left: 0;
         color: #999 !important;
-        margin-top: 11px;
+        margin-top: 13px;
     }
     .location-wrap .location-lab ion-icon{
         padding-right:10px;
@@ -94,7 +94,7 @@ page-search {
             font-size: 14px;
             padding-left: 15px;
         }
-    button{border-radius: 4px !important;
+    button{border-radius: 0px !important;
         height:3em !important;
         font-size: 1.6rem !important;
         margin: 0.4rem 0.2rem;
@@ -110,5 +110,11 @@ page-search {
     }
     .scroll-content{
         padding:16px 30px !important;
+    }
+    ion-footer:before{
+        display: none;
+    }
+    ion-buttons{
+        margin: 0;
     }
 }
