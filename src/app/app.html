@@ -1,1 +1,28 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<!-- <ion-nav [root]="rootPage"></ion-nav> -->
+<ion-menu [content]="content"  swipeEnabled="false">
+
+    <ion-content>
+  
+    <ion-item  class="user-container">
+  
+    <img  src="/assets/imgs/user-img.png">
+  
+    <p>Suresh Tiwari</p>
+  
+    </ion-item>
+  
+    <ion-list  no-lines  class="links-wrap">
+  
+    <button  menuClose  ion-item *ngFor="let p of pages" (click)="openPage(p)">
+  
+    <i  class="fa {{p.icon}}"  aria-hidden="true"></i>  
+  
+   {{p.title}}
+  
+    </button>
+  
+    </ion-list>
+  
+    </ion-content>
+  
+    </ion-menu><ion-nav [root]="rootPage" #content  swipeBackEnabled="false"></ion-nav>

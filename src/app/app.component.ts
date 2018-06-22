@@ -13,17 +13,12 @@ import { DatePipe } from '@angular/common';
 
 //import { HomePage } from  '../pages/home/home';
 
-// import { SearchPage } from  '../pages/search/search';
-
-// import { MybookingsPage } from  '../pages/mybookings/mybookings';
-
-// import { ProfilePage } from  '../pages/profile/profile';
-
-// import { NotificationPage } from  '../pages/notification/notification';
-
-//import { NotificationemptyPage } from  '../pages/n';
-
-//import { MybookingemptyPage } from  '../pages/mybookingempty/mybookingempty';
+import { SearchPage } from  '../pages/search/search';
+import { MybookingsPage } from  '../pages/mybookings/mybookings';
+import { ProfilePage } from  '../pages/profile/profile';
+import { NotificationPage } from  '../pages/notification/notification';
+import { NotificationemptyPage } from  '../pages/notificationempty/notificationempty';
+import { MybookingemptyPage } from  '../pages/mybookingempty/mybookingempty';
 
 
 
@@ -32,9 +27,11 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe]
 })
 export class MyApp {
+  @ViewChild(Nav) nav: Nav;
   rootPage = HomePage;
   // Online;
   // Offline
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
     public events: Events,public alert :AlertController ,
@@ -46,6 +43,17 @@ export class MyApp {
     //   statusBar.styleDefault();
     //   splashScreen.hide();
     // });
+
+    //this.initializeApp();
+
+    // used for an example of ngFor and navigation
+    this.pages = [
+      { title: 'Find truck', component: SearchPage, icon: 'fa-search' },
+      { title: 'My Bookings', component: MybookingsPage, icon: 'fa-truck' },
+      { title: 'Notification', component: NotificationPage, icon: 'fa-bell' },
+      { title: 'Profile', component: ProfilePage, icon: 'fa-user' },
+      { title: 'logout', component: HomePage, icon: 'fa-sign-out'} 
+    ];
 
     // initializeApp() {
         platform.ready().then(() => {
@@ -79,6 +87,23 @@ export class MyApp {
   }
 
   // }
+
+  // initializeApp() {
+  //   this.platform.ready().then(() => {
+  //     // Okay, so the platform is ready and our plugins are available.
+  //     // Here you can do any higher level native things you might need.
+  //     this.statusBar.styleDefault();
+  //     this.splashScreen.hide();
+  //   });
+  // }
+
+
+
+  openPage(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(page.component);
+  }
   
   
   }

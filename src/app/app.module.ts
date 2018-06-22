@@ -26,6 +26,14 @@ import { PortProvider } from '../providers/port/port';
 import{SearchEmptyPage} from '../pages/search-empty/search-empty';
 import { DatePipe } from '@angular/common';
 
+
+//import { SearchPage } from  '../pages/search/search';
+import { MybookingsPage } from  '../pages/mybookings/mybookings';
+import { ProfilePage } from  '../pages/profile/profile';
+import { NotificationPage } from  '../pages/notification/notification';
+import { NotificationemptyPage } from  '../pages/notificationempty/notificationempty';
+import { MybookingemptyPage } from  '../pages/mybookingempty/mybookingempty';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -33,7 +41,7 @@ import { DatePipe } from '@angular/common';
     RegisteredPage,
     SearchPipe,
     SortPipe,
-    SearchPage,SearchEmptyPage
+    SearchPage,SearchEmptyPage,MybookingsPage,ProfilePage,NotificationPage,MybookingemptyPage,NotificationemptyPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,7 @@ import { DatePipe } from '@angular/common';
     MyApp,
     HomePage,
     RegisteredPage,
-    SearchPage,SearchEmptyPage
+    SearchPage,SearchEmptyPage,MybookingsPage,ProfilePage,NotificationPage,MybookingemptyPage,NotificationemptyPage
     ],
   providers: [
     StatusBar,
