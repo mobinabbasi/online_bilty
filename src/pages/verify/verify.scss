@@ -5,12 +5,12 @@ page-verify {
 .toolbar-title{color: #fff; font-weight: 400;font-size: 16px;}
 .title-ios{padding-top: 32px !important;}
 .top-head {text-align: center;margin: 10px 0 40px;}
-.top-head h3{font-size: 20px;}
-.top-head p{color: #666;margin: 0 0 5px;font-size: 16px;}
-button{border-radius: 4px !important;
+.top-head h3{font-size: 18px;}
+.top-head p{color: #666;margin: 0 0 5px;font-size: 14px;}
+button{border-radius: 0 !important;
     height:3em !important;
     font-size: 1.6rem !important;
-    margin: 0.4rem 0.2rem;
+    margin: 0.4rem 0 0 !important;
     padding: 0 1em !important;
     text-transform: capitalize !important;
 }  
@@ -47,5 +47,8 @@ button{border-radius: 4px !important;
 
 ion-footer:before{
     display: none;
+}
+ion-buttons{
+    margin: 0;
 }
 }
