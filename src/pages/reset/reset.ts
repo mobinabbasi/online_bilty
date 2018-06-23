@@ -33,7 +33,7 @@ private Reset: FormGroup;
   }
 
   reset_pass() {
-    let API = `http://mobitplus.com/onlinebilty/webservices/reset_password?type=${this.type}&phonenumber=${this.number}&user_password=${this.Reset.value.confirm_pass}`;
+    let API = `http://www.onlinebilty.com/webservices/reset_password?type=${this.type}&phonenumber=${this.number}&user_password=${this.Reset.value.confirm_pass}`;
         //console.log(API);
         if(this.Reset.value.confirm_pass === this.Reset.value.pass) {
           this.http.get(API).subscribe((data:Response) => {

@@ -3,76 +3,20 @@
     <button ion-button menuToggle class="menu-btn"><ion-icon name="menu"></ion-icon></button>
     <ion-title>Profile</ion-title>
     <ion-buttons end>
+<!-- <<<<<<< HEAD
+            <!-- <button ion-button class="settings-btn" ><ion-icon name="create"></ion-icon></button>
+            <button ion-button class="settings-btn" icon-only (click)="presentPopover($event)"><ion-icon name="more"></ion-icon></button>
+======= -->
         <button ion-button class="settings-btn" navPush=""><ion-icon name="create"></ion-icon></button>
         <button ion-button class="settings-btn" icon-only (click)="presentPopover($event)"><ion-icon name="more"></ion-icon></button>
+<!-- >>>>>>> 793b731a85b79c5715697d6e99226c798557fc02 -->
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-    <!-- <ion-menu type="overlay" [content]="menu">
-        <ion-content>
-            <ion-item class="user-container">
-                <img src="/assets/imgs/user-img.png">
-                <p>Suresh Tiwari</p>
-            </ion-item>
-            <div class="links-wrap">
-            <ion-list class="menu-list">
-                <ion-item class="menu-item" navPush="MybookingsPage">
-                    <ion-icon name="car"></ion-icon>
-                    My Bookings
-                </ion-item>
-                <ion-item class="menu-item" navPush="NotificationPage">
-                    <ion-icon name="notifications"></ion-icon>
-                    Notification
-                </ion-item>
-                <ion-item class="menu-item" navPush="ProfilePage">
-                    <ion-icon name="person"></ion-icon>
-                    Profile
-                </ion-item>
-                <ion-item class="menu-item logout">
-                    <ion-icon name="person"></ion-icon>
-                    Logout
-                </ion-item>
-            </ion-list>
-            </div>
-        </ion-content>
-    </ion-menu>   -->
     <ion-nav #menu [root]="ProfilePage"></ion-nav>
-<!-- <<<<<<< master
-    <form  novalidate class="customerform">
-            <ion-item class="choose-item">
-                <ion-input type="file" class="choose-pro"></ion-input>
-            </ion-item>
-          <ion-item>
-            <ion-label floating><ion-icon name="person"></ion-icon>Full Name</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating><ion-icon name="call"></ion-icon>Phone Number</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating><ion-icon name="mail"></ion-icon>Email</ion-label>
-            <ion-input type="Email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating><ion-icon name="pin"></ion-icon>City</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating><ion-icon name="pin"></ion-icon>State</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label floating><ion-icon name="home"></ion-icon>Full Address</ion-label>
-            <ion-textarea></ion-textarea>
-          </ion-item>
-         
-            <button ion-button full class="Sign" navPush="NotificationPage">Save</button>
-         
-======= -->
     <form  [formGroup]="Profile" (ngSubmit)="profile_info()" novalidate>
         <ion-item>
             <ion-label floating><ion-icon name="person"></ion-icon>Full Name</ion-label>
@@ -84,19 +28,19 @@
           </ion-item>
           <ion-item>
             <ion-label floating><ion-icon name="mail"></ion-icon>Email</ion-label>
-            <ion-input type="Email" formControlName="email" value=""></ion-input>
+            <ion-input type="Email" formControlName="email" value="{{this.info.user_email}}"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating><ion-icon name="pin"></ion-icon>City</ion-label>
-            <ion-input type="text" formControlName="city" value=""></ion-input>
+            <ion-input type="text" formControlName="city" value="{{this.info.citylocation}}"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating><ion-icon name="pin"></ion-icon>State</ion-label>
-            <ion-input type="text" formControlName="state" value=""></ion-input>
+            <ion-input type="text" formControlName="state" value="{{this.info.user_state}}"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating><ion-icon name="home" ></ion-icon>Full Address</ion-label>
-            <ion-textarea formControlName="address" value=""></ion-textarea>
+            <ion-textarea formControlName="address" value="{{this.info.user_address}}"></ion-textarea>
           </ion-item>
           <button ion-button full class="Sign"  type="submit" [disabled]="!Profile.valid">Save</button>
     </form>

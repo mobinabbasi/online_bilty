@@ -1,74 +1,65 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+//import { Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
 import { error } from '@firebase/database/dist/esm/src/core/util/util';
-import {ServiceProvider} from '../../providers/service/service';
-
+import { Observable } from 'rxjs/Observable';
+import { map, catchError } from 'rxjs/operators';
 
 @IonicPage()
 @Component({
   selector: 'page-search-location',
   templateUrl: 'search-location.html',
-  providers: [ServiceProvider],
 })
 export class SearchLocationPage {
   searchQuery: string = '';
-  cities: string[];
-  ErrorMessage: string;
- // city:any;
-  items: string[];
+  cities = [];
+  item: any;
+ private API = 'http://mobitplus.com/onlinebilty/webservices/cities';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private service: ServiceProvider,
+descending: boolean = false;
+order: number;
+column: string = 'name';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
     public http: Http, public httpclient: HttpClient) {
-    //this.initializeItems();
     this.GetCity();
   }
 
+
   
-  // initializeItems() {
-  //   this.items = [
-  //     'Amsterdam',
-  //     'Bogota',
-  //   ];
-  // }
+ 
+ 
+  getItems(ev: any) {
+    // Reset items back to all of the items
+    this.GetCity();
 
+    // set val to the value of the searchbar
+    const val = ev.target.value;
 
-   GetCity() {
-    //let city = new Array();
-    this.service.getCity().subscribe(
-      // cities => this.cities = cities,
-      // error => this.ErrorMessage = <any>error
-      (data) => {
-
-        for(let key of data) {
-          this.cities.push(data[key]);
-        }
-        console.log(this.cities);
-      },(error) => console.log('Error', error));
-    
-    // let val = [];
-    // for(var i of this.cities.data) {
-    //   val.push(i.city_name);
-    //   console.log(val);
-    // }
-
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.cities = this.cities.filter((city) => {
+        return (city.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        
+      })
+    }
   }
+  
 
-  // getItems(ev: any) {
-  //   // Reset items back to all of the items
-  //  // this.GetCity();
 
-  //   // set val to the value of the searchbar
-  //   let val = ev.target.value;
-
-  //   // if the value is an empty string don't filter the items
-  //   if (val && val.trim() != '') {
-  //     this.items = this.items.filter((item) => {
-  //       return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-  //     })
-  //   }
-  // }
+  GetCity() {
+    let API = 'http://mobitplus.com/onlinebilty/webservices/cities';
+    this.http.get(API).do(res => res.json()).map(data => data.json())
+    .subscribe(result => {
+      this.item = result;
+      //this.userlist = Array.of(this.userlist);
+      for (var i of this.item.userlist) {
+        this.cities.push(i.city_name);
+      }
+      console.log(this.cities);
+    });
+  }
 
 }

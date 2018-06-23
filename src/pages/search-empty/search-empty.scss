@@ -1,0 +1,57 @@
+page-search-empty {
+
+    .toolbar-background{background:#0c6f9b;}
+    .header button{color: #fff;}
+    .title-ios{padding:32px 20px 1px 30px !important;}
+    .toolbar-title{color: #fff; font-weight: 400;font-size: 16px;padding-left: 0;}
+    .header ion-icon { padding: 0 5px;}
+    .scroll-content{
+        padding:0 0 !important;
+    }
+    ion-item{
+        padding-left: 0 !important;
+    }
+    ion-label{
+        padding-left:0;
+        font-weight: 500;
+        text-align: center;
+        margin: 0 !important;
+    }
+    .recent {
+        padding: 15px;
+        background: #eee;
+        margin: 0;
+        font-weight: 400;
+        text-align:left;
+    }
+    .center-img{
+        margin: 0 auto; 
+    }
+    button{border-radius: 4px !important;
+        height:3em !important;
+        font-size: 1.6rem !important;
+        margin: 0.4rem 0.2rem;
+        text-transform: capitalize !important;
+    }  
+    .Sign, .Sign.activated{
+        color: #fff;
+        background-color: #e76c1a;
+        font-weight:500;
+        width:80%;
+        margin: 25px auto 0;
+    }
+    .empty-state{
+        margin:100px auto 0;
+    }
+    .empty-state h4{
+        color: #0c6f9b;
+        font-weight: 500;
+        font-size: 1.6rem;
+        margin: 20px 0 10px;
+    }
+    .empty-state h6{
+        color: #666;
+    }
+    .empty-state .item-inner{border-bottom:none !important;padding: 0 15px !important;}
+
+}

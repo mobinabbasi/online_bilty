@@ -10,7 +10,7 @@ import { Observable } from "rxjs/Rx";
 import {RegisteredPage} from '../../pages/registered/registered';
 import { FormBuilder , FormGroup , Validators} from '@angular/forms';
 import { Http , Response} from '@angular/http';
-
+import { SearchPage } from '../search/search';
 
 
 
@@ -39,12 +39,31 @@ export class LoginPage {
       number: ['', Validators.compose([Validators.required,Validators.minLength(10),Validators.maxLength(10)])],
       password : ['', Validators.compose([Validators.required,Validators.minLength(6),Validators.maxLength(20)])]
     })
-    
 
   }
 
+  public  type  =  'password';
+
+  public  showPass  =  false;
+
+  showPassword() {
+
+  this.showPass  =  !this.showPass;
+
+  if(this.showPass){
+
+  this.type  =  'text';
+
+ } else {
+
+  this.type  =  'password';
+
+ }
+
+ }
+
   _login() {
-    let API = `http://mobitplus.com/onlinebilty/webservices/login?type=${this.user_type}&phonenumber=${this.Login.value.number}`;
+    let API = `http://www.onlinebilty.com/webservices/login?type=${this.user_type}&phonenumber=${this.Login.value.number}`;
     //if(this.Login.value.number)
     this.http.get(API)//.map(res => res.json())
     .subscribe((data: Response) => {
@@ -56,7 +75,7 @@ export class LoginPage {
 
           //this.navCtrl.setRoot('SearchPage');
           localStorage.setItem('Data',JSON.stringify(Data));
-          this.navCtrl.push('SearchPage');
+          this.navCtrl.push(SearchPage);
           //console.log(user);
         } else {
           let Alert = this.alert.create({

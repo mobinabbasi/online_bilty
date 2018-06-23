@@ -20,6 +20,9 @@ import { App } from 'ionic-angular';
 
 import { map, catchError } from 'rxjs/operators';
 //import { Observable } from 'rxjs/Observable';
+import * as moment from 'moment';
+import { DatePipe } from '@angular/common';
+
 
 @Injectable()
 export class ServiceProvider {
@@ -30,11 +33,12 @@ export class ServiceProvider {
   num: any;
   cities:  any[];
 
+  private BaseAPI = `http://www.onlinebilty.com/webservices`;
   
 
   constructor(public http: Http,public afAuth: AngularFireAuth,
     private facebook: Facebook,public alert :AlertController,
-     public afd: AngularFireDatabase,
+     public afd: AngularFireDatabase,public datepipe:DatePipe,
       public app: App) {
       this.authState = afAuth.authState;
 
@@ -43,24 +47,10 @@ export class ServiceProvider {
     });
   }
 
- 
-
-  getUsers() {
-    let apiUrl = `http://mobitplus.com/onlinebilty/webservices/get_data?type=1&phonenumber=7828905789`;
-    return new Promise(resolve => {
-      this.http.get(apiUrl).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
-
-
    addCust(Phonenum, type) {
-     //let OTPapi = `http://mobitplus.com/onlinebilty/webservices/sendotp?type=${type}&phonenumber=${Phonenum.user_phonenum}`; 
-    let api = `http://mobitplus.com/onlinebilty/webservices/registration_new?type=${type}&phonenumber=${Phonenum.user_phonenum}&password=`;
+    let api = `http://www.onlinebilty.com/webservices/registration_new?type=${type}&phonenumber=${Phonenum.user_phonenum}&password=`;
     //console.log(OTPapi);
+    
     return Observable.from(new Promise((resolve, reject) => {
            let headerOptions: any = { 'Content-Type': 'application/json' };
            let headers = new Headers(headerOptions)
@@ -85,45 +75,13 @@ export class ServiceProvider {
               });
               alert.present();
             }
-            console.log(data);
+            console.log('register:',data);
             //console.log(data.status);
             resolve(res);
           }, (err) => {
             reject(err);
           });
         }))
-      }
-
-      getCity(): Observable<string[]> {
-
-      let API = 'http://mobitplus.com/onlinebilty/webservices/cities';
-
-        return this.http.get(API).pipe(
-          map(this.extraData),
-          catchError(this.handleError)
-        );
-        // if(this.cities) {
-        //   return  Promise.resolve(this.cities);
-        // }
-
-      //   let API = 'http://mobitplus.com/onlinebilty/webservices/cities';
-
-      //   return new Promise(resolve => {
-      //     // let headerOptions: any = { 'Content-Type': 'application/json' };
-      //     //  let headers = new Headers(headerOptions)
-      //     // const options = new RequestOptions({headers: headers});
-
-      //     this.http.get(API)
-      //   .map(data => data.json()).subscribe(res => {
-      //     this.cities = res;
-      //      //this.city = this.cities;
-      //     console.log(this.cities);
-      //     resolve(this.cities);
-      //    // return Promise.resolve(this.cities);
-      //   })
-
-      // })
-         
       }
 
       private extraData(res:Response){
@@ -142,6 +100,27 @@ export class ServiceProvider {
         console.error(errMsg);
         return Observable.throw(errMsg);
       }
+
+    search(data,userID) {
+      console.log(data);
+       let Date = this.datepipe.transform(data.date, 'dd/MM/yyyy');
+       console.log(Date);
+       return Observable.from(new Promise((resolve, reject) => {
+        let headerOptions: any = { 'Content-Type': 'application/json' };
+        let headers = new Headers(headerOptions)
+       const options = new RequestOptions({headers: headers});
+
+      let API = this.BaseAPI + `/search_data?user_id=${userID}&fromcity=${data.from_location.city_name}&tocity=${data.to_location.city_name}&book_date=${Date}&material_type=${data.material}`;
+      console.log(API);
+      this.http.get(API).map(res => res.json()).subscribe(data => {
+       
+        resolve(data);
+        console.log(data);
+      },(err) => {
+        reject(err);
+      });
+    }))
+    }
  
 
   loginWithFB() {
@@ -159,19 +138,4 @@ export class ServiceProvider {
     });
   }
 
-  // login(credentials) {
-  //   let API = `http://mobitplus.com/onlinebilty/webservices/login?type=2&phonenumber=9874563210`;
-  //   return new Promise((resolve, reject) => {
-  //       let headers = new Headers();
-  //       headers.append('Content-Type', 'application/json');
-
-  //       this.http.post(API ,JSON.stringify(credentials), {headers: headers})
-  //         .subscribe(res => {
-  //           resolve(res.json());
-  //         }, (err) => {
-  //           reject(err);
-  //         });
-  //   });
-  // }
-  
 }

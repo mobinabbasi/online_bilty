@@ -16,33 +16,32 @@ import {HttpClientModule} from '@angular/common/http';
 import { ServiceProvider } from '../providers/service/service';
 import {Facebook} from '@ionic-native/facebook';
 import { RegisteredPage } from '../pages/registered/registered';
+import { SearchPage } from '../pages/search/search';
 import {Network} from '@ionic-native/network';
 import { NetworkProvider } from '../providers/network/network';
+import {SearchPipe} from '../pipes/search/search';
+import {SortPipe} from '../pipes/sort/sort';
+import { SelectSearchableModule } from 'ionic-select-searchable';
+import { PortProvider } from '../providers/port/port';
+import{SearchEmptyPage} from '../pages/search-empty/search-empty';
+import { DatePipe } from '@angular/common';
 
 
-// import {ConfirmPage} from '../pages/confirm/confirm';
-// import {DetailsPage} from '../pages/details/details';
-// import {FilterPage} from '../pages/filter/filter';
-// //import {LoginPage} from '../pages/login/login';
-// import {MybookingsPage} from '../pages/mybookings/mybookings';
-// import {MytruckPage} from '../pages/mytruck/mytruck';
-// import {NotificationPage} from '../pages/notification/notification';
-// import {PasswordPage} from '../pages/password/password';
-// import {ProfilePage} from '../pages/profile/profile';
-// import {ProfilepasswordPage} from '../pages/profilepassword/profilepassword';
-// //import {RegisteredPage} from '../pages/registered/registered';
-// import {ResetPage} from '../pages/reset/reset';
-// import {ResetpasswordPage} from '../pages/resetpassword/resetpassword';
-// import {SearchPage} from '../pages/search/search';
-// import {SearchLocationPage} from '../pages/search-location/search-location';
-// import {TrucktypePage} from '../pages/trucktype/trucktype';
-// import {VerifyPage} from '../pages/verify/verify';
+//import { SearchPage } from  '../pages/search/search';
+import { MybookingsPage } from  '../pages/mybookings/mybookings';
+import { ProfilePage } from  '../pages/profile/profile';
+import { NotificationPage } from  '../pages/notification/notification';
+import { NotificationemptyPage } from  '../pages/notificationempty/notificationempty';
+import { MybookingemptyPage } from  '../pages/mybookingempty/mybookingempty';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    RegisteredPage
+    RegisteredPage,
+    SearchPipe,
+    SortPipe,
+    SearchPage,SearchEmptyPage,MybookingsPage,ProfilePage,NotificationPage,MybookingemptyPage,NotificationemptyPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +50,7 @@ import { NetworkProvider } from '../providers/network/network';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     HttpClientModule,
-    HttpModule,
+    HttpModule,SelectSearchableModule
     
     
     
@@ -61,6 +60,7 @@ import { NetworkProvider } from '../providers/network/network';
     MyApp,
     HomePage,
     RegisteredPage,
+    SearchPage,SearchEmptyPage,MybookingsPage,ProfilePage,NotificationPage,MybookingemptyPage,NotificationemptyPage
     ],
   providers: [
     StatusBar,
@@ -70,6 +70,8 @@ import { NetworkProvider } from '../providers/network/network';
     Facebook,
     Network,
     NetworkProvider,
+    PortProvider,DatePipe
+    
     
   ]
 })
