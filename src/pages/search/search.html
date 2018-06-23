@@ -3,64 +3,70 @@
     <button ion-button menuToggle class="menu-btn"><ion-icon name="menu"></ion-icon></button>
     <ion-title>Search</ion-title>     
     <ion-buttons end>
-        <button ion-button class="settings-btn" navPush="FilterPage"><ion-icon name="more"></ion-icon></button>
+        <button ion-button class="settings-btn" ><ion-icon name="notifications"></ion-icon></button>
     </ion-buttons>
 </ion-navbar>
-</ion-header>
+</ion-header> 
 
 
 <ion-content padding>
-    <ion-menu type="overlay" [content]="menu">
-        <ion-content>
-            <ion-item class="user-container">
-                    <!-- <ion-thumbnail item-start>
-                            <img src="">
-                          </ion-thumbnail> -->
-                    <ion-avatar>
-                            <img  src="{{this.info.profile_pic}}">
-                      </ion-avatar>
-                <!-- <img src=""> -->
-                <p>{{this.info.user_name}}</p>
-                <span>{{this.Type}}</span>
-            </ion-item>
-            <div class="links-wrap">
-            <ion-list class="menu-list">
-                <ion-item class="menu-item" navPush="MybookingsPage">
-                    <ion-icon name="car"></ion-icon>
-                    My Bookings
-                </ion-item>
-                <ion-item class="menu-item" navPush="NotificationPage">
-                    <ion-icon name="notifications"></ion-icon>
-                    Notification
-                </ion-item>
-                <ion-item class="menu-item"  (click)="ProfilePage()">
-                    <ion-icon name="person"></ion-icon>
-                    Profile
-                </ion-item>
-                <ion-item class="menu-item logout" (click)="_Logout()" id="logout">
-                    <ion-icon name="person"></ion-icon>
-                    Logout
-                </ion-item>
-            </ion-list>
-            </div>
-        </ion-content>
-    </ion-menu>  
-    <ion-nav #menu [root]="rootPage"></ion-nav>
+<form [formGroup]="Search" (ngSubmit)="search_upt()">
     <ion-item class="sh-item date">
         <ion-label><ion-icon name="calendar" class="sh-icon"></ion-icon></ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+        <ion-datetime displayFormat="DD/MM/YYYY"  pickerFormat="DD/MM/YYYY" formControlName="date"></ion-datetime>
     </ion-item>
     <ion-item class="sh-item material">
         <ion-label><ion-icon name="cube" class="sh-icon"></ion-icon></ion-label>
-        <ion-input type="text" placeholder="Material Type"></ion-input>
+        <ion-input type="text" placeholder="Material Type" formControlName="material"></ion-input>
     </ion-item>
+
+    <!-- <ion-item>
+        <select-searchable>
+                <ng-template selectSearchableItemTemplate let-city="cities">
+                        {{city.city_name}}
+                    </ng-template>
+        </select-searchable>
+    </ion-item> -->
+    <div class="location-wrap sh-item">
+        <ion-label class="location-lab"><ion-icon name="pin" class=""></ion-icon>From Location</ion-label>
+        <ion-item>
+                <select-searchable formControlName="from_location"
+                    itemTextField="city_name"
+                    [items]="cities"
+                    searchPlaceholder="From Location"
+                    [canSearch]="true">
+                </select-searchable>
+            </ion-item>
+    </div>
+    <!-- <ion-item class="sh-item location material" >
+        <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+        <ion-input placeholder="From" formControlName="from_location" (ionInput)="getItems($event)"></ion-input>
+        <ion-list *ngFor="let city of cities" class="city-itm">
+              {{city}}
+          </ion-list>
+    </ion-item> -->
+
+    <div class="location-wrap sh-item">
+        <ion-label class="location-lab"><ion-icon name="pin" class=""></ion-icon>To Location</ion-label>
+        <ion-item>
+            <select-searchable formControlName="to_location"
+                itemTextField="city_name"
+                [items]="cities"
+                searchPlaceholder="To Location"
+                [canSearch]="true">
+            </select-searchable>
+        </ion-item>
+    </div>    
+
+<!-- 
     <ion-item class="sh-item location material" navPush="SearchLocationPage">
         <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
-        <ion-input placeholder="From"></ion-input>
-    </ion-item>
-    <ion-item class="sh-item location material" navPush="SearchLocationPage">
-        <ion-label><ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
-        <ion-input placeholder="To"></ion-input>
-    </ion-item>
-  <button ion-button full class="Sign" navPush="TrucktypePage">Search</button>
+        <ion-input placeholder="To" formControlName="to_location"></ion-input>
+    </ion-item> -->
+  <ion-footer>
+        <ion-buttons>
+                <button ion-button full class="Sign" type="Submit" [disabled]="!Search.valid">Search</button>   
+        </ion-buttons>
+      </ion-footer>
+</form>
 </ion-content>
