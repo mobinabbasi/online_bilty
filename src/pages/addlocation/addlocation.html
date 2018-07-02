@@ -1,18 +1,19 @@
-<!--
-  Generated template for the AddlocationPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>addlocation</ion-title>
-  </ion-navbar>
-
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle class="menu-btn"><ion-icon name="menu"></ion-icon></button>
+    <ion-title>Add Location</ion-title>     
+</ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-
-</ion-content>
+    <div class="date-box"><ion-icon name="calendar"></ion-icon>May 10, 2018</div>
+    <ion-item class="sh-item location" navPush="SearchLocationPage">
+        <ion-label>City<ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+    </ion-item>
+    <ion-item class="sh-item location" navPush="SearchLocationPage">
+        <ion-label>State<ion-icon name="pin" class="sh-icon"></ion-icon></ion-label>
+    </ion-item> 
+    <button ion-button full class="Sign" navPush="" (click)="showAlert()">Add Location</button>
+    <p class="note">Please add your today's location properly so that you will receive your bookings.</p>
+  </ion-content>    

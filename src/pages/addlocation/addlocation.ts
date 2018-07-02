@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 
 /**
  * Generated class for the AddlocationPage page.
@@ -15,11 +15,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AddlocationPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddlocationPage');
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Success!',
+      subTitle: 'Your Location is Bhopal (Madhya Pradesh) is Successfully Updated.',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }
